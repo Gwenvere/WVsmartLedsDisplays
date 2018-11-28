@@ -11,3 +11,12 @@
 
 15/11: (9:00-12:30) afmaken presentatie
 15/11: (14:00-14:30) samenzitten Marnick en Bart
+
+19/11: (11:00-12:00) overlopen presentatie + laatste afwerkingen
+
+19/11: (14:00-18:00) presentatie geven/andere presentaties volgen
+
+20/11: (13:30-17:30) initiatie solderen
+
+28/11: (9:30 - ...) setup zigduino + verkennen code
+
