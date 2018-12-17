@@ -1,20 +1,40 @@
+//eerst reader aanzetten, dan sender
+//geen weerstand bij reader
+//die LED's uit de arduino starter kit
+
+int bps = 50; //Met huidige LED's, max 50
 int analogPin = 1;
 int val = 0;
-int th = 750; //treshold
-int bit_dly = 10000; //delay
-int bstr_dly = 1000; //delay
+int th = 910; //treshold
+int bit_dly = 50; //delay
+int bstr_dly = 0; //delay kleiner dan bij sender (of 0) 
 int sample_dly;
+int del = 5;
 
 #define NB_BITS 14
 #define NB_SAMPLES 5 // must be uneven
 
-boolean bit_str[NB_BITS];
-boolean samples[NB_SAMPLES];
-boolean previous_bit;
-boolean initial_run = 1;
+bool bit_str[NB_BITS];
+bool samples[NB_SAMPLES];
+bool previous_bit;
+bool initial_run = 1;
+
+//remove residual current
+void clearPin(int pin) {
+  for (int i = 0; i < 10; i ++)
+    analogRead(pin);
+
+}
+
+bool readOne() { //preamble checken
+  int val = analogRead(analogPin);
+  //Serial.println(val);
+  return val <= th;
+}
 
 void setup() {
   Serial.begin(9600);
+  bit_dly = 1000/bps;
   // initialize samples array
   for (int i = 0; i < NB_SAMPLES; i++) {
     samples[i] = 0;
@@ -25,25 +45,24 @@ void setup() {
 }
 
 void loop() {
-  //delayMicroseconds(5);
+ /* delay(del);
+  int val = analogRead(analogPin);
+  Serial.println(val);
+  */
+  delay(del);
   //Serial.println(analogRead(analogPin));
   if (readOne()) { //start signal bitstring
     read_bit_str(bit_str);
     print_bit_str(bit_str);
-    //Serial.print(boolsToChar(bit_str));
+    Serial.print(boolsToChar(bit_str));
   }
 }
 
-//remove residual current
-void clearPin(int pin) {
-  for (int i = 0; i < 10; i ++)
-    analogRead(pin);
 
-}
 
-void read_bit_str(boolean bit_str[]) {
+void read_bit_str(bool bit_str[]) {
   Serial.print("{");
-  delayMicroseconds(10);
+  delay(10);
   for (int count = 0; count < NB_BITS; count ++) {
     bit_str[count] = read_bit();
     //Serial.print(bit_str[count]);
@@ -51,13 +70,13 @@ void read_bit_str(boolean bit_str[]) {
   }
   //Serial.print("}");
   //Serial.print("\n");
-  delayMicroseconds(bstr_dly);
+  delay(bstr_dly);
 }
 
 /* This function first determines the offset (via previous samples),
     then it collects the samples (taking this offset into account)
     and finally it returns the middle sample. */
-boolean read_bit() {
+bool read_bit() {
   int wrong_samples_offset = 0;
   if (initial_run) {
     // Don't check previous samples for syncing
@@ -99,20 +118,20 @@ boolean read_bit() {
     // Collect rest of current samples
     for (int i = -wrong_samples_offset; i < NB_SAMPLES; i++) {
       samples[i] = readOne();
-      delayMicroseconds(sample_dly);
+      delay(sample_dly);
     }
   }
   else {
     // if first part has wrong samples, wait.
     if (wrong_samples_offset > 0) {
       //for (int i = 0; i < wrong_samples_offset; i++)
-      //  delayMicroseconds(sample_dly);
-      delayMicroseconds(sample_dly * wrong_samples_offset);
+      //  delay(sample_dly);
+      delay(sample_dly * wrong_samples_offset);
     }
     // Collect current samples
     for (int i = 0; i < NB_SAMPLES; i++) {
       samples[i] = readOne();
-      delayMicroseconds(sample_dly);
+      delay(sample_dly);
     }
   }
   // Accept middle sample as read bit and return it.
@@ -120,7 +139,7 @@ boolean read_bit() {
   return previous_bit;
 }
 
-void print_bit_str(boolean bit_str[]) {
+void print_bit_str(bool bit_str[]) {
   for (int count = 0; count < NB_BITS; count ++) {
     if (bit_str[count])
       Serial.print("1");
@@ -130,11 +149,7 @@ void print_bit_str(boolean bit_str[]) {
   Serial.println("");
 }
 
-boolean readOne() {
-  int val = analogRead(analogPin);
-  //Serial.println(val);
-  return val >= th;
-}
+
 
 void print_samples() {
   Serial.print("[");

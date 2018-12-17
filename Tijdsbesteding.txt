@@ -18,5 +18,6 @@
 
 20/11: (13:30-17:30) initiatie solderen
 
-28/11: (9:30 - ...) setup zigduino + verkennen code
+28/11: (9:30 - 15:00) setup zigduino + verkennen code
+5/12: (9:30 - ) korte presentatie maken + poging communicatie
 
