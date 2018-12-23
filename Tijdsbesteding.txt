@@ -2,22 +2,30 @@
 
 29/10: samengezeten met Marnick en Bart om te bespreken wat er verwacht wordt
 
-5/11: (14:30-16:30) onderling gebrainstormd over hoe we het gaan aanpakken, ideëen voor displays besproken en onderzocht.
-5/11: (16:40-17:00) Marnick en Bart, oorspronkelijk idee geschrapt en besloten om verder te gaan met floodlight display
+5/11: 	(14:30-16:30) onderling gebrainstormd over hoe we het gaan aanpakken, ideëen voor displays besproken en onderzocht.
+5/11: 	(16:40-17:00) Marnick en Bart, oorspronkelijk idee geschrapt en besloten om verder te gaan met floodlight display
 
-8/11: (16:30-17:30) onderling papers gezocht over specifiek onderwerp en eerste outline van presentatie vastgelegd
+8/11: 	(16:30-17:30) onderling papers gezocht over specifiek onderwerp en eerste outline van presentatie vastgelegd
 
-14/11: (10:00-16:00) outline presentatie vervolledigd en maken presentatie, dia's, verdeling,...
+14/11: 	(10:00-16:00) outline presentatie vervolledigd en maken presentatie, dia's, verdeling,...
 
-15/11: (9:00-12:30) afmaken presentatie
-15/11: (14:00-14:30) samenzitten Marnick en Bart
+15/11: 	(9:00-12:30) afmaken presentatie
+15/11: 	(14:00-14:30) samenzitten Marnick en Bart
 
-19/11: (11:00-12:00) overlopen presentatie + laatste afwerkingen
+19/11: 	(11:00-12:00) overlopen presentatie + laatste afwerkingen
 
-19/11: (14:00-18:00) presentatie geven/andere presentaties volgen
+19/11: 	(14:00-18:00) presentatie geven/andere presentaties volgen
 
-20/11: (13:30-17:30) initiatie solderen
+20/11: 	(13:30-17:30) initiatie solderen
 
-28/11: (9:30 - 15:00) setup zigduino + verkennen code
-5/12: (9:30 - ) korte presentatie maken + poging communicatie
+28/11: 	(9:30 - 15:00) setup zigduino + verkennen code
+5/12: 	(9:30 - 15:00) korte presentatie maken + poging communicatie
+10/12: 	(14:00 - 16:00) presentatie afmaken
+	(17:30 - 17:45) korte presentatie
+17/12:	(14:00 - 18:00) LED to LED communicatie + code aanpassen naar Zigduino, parameters bestuderen, ...
+18/12:	(13:00 - 16:00) LED to LED communicatie + preambe uitbereiden + dynamische threshold
+21/12:	(13:00 - 18:00) (Barbara) Button toegevoegd om sender te pauzeren (maakt synchonisatie voorlopig makkelijker)
+			Sender en receiver code samengevoegd, de receiver kan nu het signaal dat hij opvangt doorgeven 			
+			(voorlopig via andere LED) 
+			Poging tot invoer via button, nu op een mogelijk te naïve manier, werkt nog niet
 
