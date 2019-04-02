@@ -99,6 +99,9 @@ void loop() {
       send_bit_str(bit_str_H);
       delay(bstr_dly);
       */
+    } else {
+      //Serial.print("Adjusting\n");
+      //delay(bit_dly*1.2);
     }
   }
 }
@@ -214,17 +217,6 @@ char boolsToChar(bool bools[]) {
     }
   return (char)c;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
