@@ -1,16 +1,19 @@
 #include <brushGame.h>
 #include <moleGame.h>
 
-#define NB_BITS 8
+#define NB_BITS 10
 #define NB_SAMPLES 5 // must be uneven
 #define NB_CHECKS 3
+int irPin = 1;
 
-moleGame mole(1,2,3,1);
-brushGame brush(1,2,3,1);
+moleGame mole(1,2,3,irPin);
+brushGame brush(1,2,3,irPin);
 
-bool preamble[] = {0,1,0,1,0,1,0,1};
+bool preamble[] = {1,1,1,1,0,0,0,0,1,0};
+bool test[NB_BITS];
 int program = 1;
 int threshold;
+int prevAverage = 999;
 bool bit_str_receive[NB_BITS];
 bool samples[NB_SAMPLES];
 bool previous_bit;
@@ -19,7 +22,6 @@ int sample_dly;
 int bit_dly = 50;
 
 void setup() {
-  setColor(0, 255, 0);
   sample_dly = bit_dly / NB_SAMPLES;
 
   Serial.begin(9600);
@@ -28,42 +30,51 @@ void setup() {
 
 void loop() {
   int checks = NB_CHECKS;
+  clearPin(irPin);
+  threshold = getBaseValue() + 15;
+  Serial.print("Threshold: ");
+  Serial.println(threshold);
   while (checks > 0) {
     if (checkPreamble()) {
       changeProgram();
       break;
     }
+    delay(bit_dly);
     checks--;
   }
+  Serial.println("go");
   if (program == 1) {
     mole.start();
   } else if(program == 2) {
-    brush.start();
+    brush.start(500);
   }
   delay(800);
 }
 
 bool checkPreamble() {
+  Serial.println("pre");
   for (int count = 0; count < NB_BITS; count ++) {
     bool rbit = read_bit();
-    Serial.print(rbit);
-    if (preamble[count] != rbit) {
-      return false;
-    }
+    Serial.println(rbit);
+    test[count] = rbit;
   }
-  return true;
+  return test == preamble;
 }
+
 
 void changeProgram() {
   program = 0;
   bool programBits[2];
   programBits[0] = read_bit();
   programBits[1] = read_bit();
+  Serial.println("new");
+  Serial.println(programBits[0]);
+  Serial.println(programBits[1]);
   if (programBits[0]) {
-    program += 2;
+    program = program + 2;
   }
   if (programBits[1]) {
-    program += 1;
+    program = program + 1;
   }
 }
 
@@ -134,6 +145,36 @@ bool readOne() { //preamble checken
   int val = analogRead(irPin);
   return val >= threshold;
 }
+
+int getBaseValue(){ //get a base reading of the IR value
+
+  int numReadings = 10;           // the number of readings
+  int readings[numReadings];      // the readings from the analog input
+  int readIndex = 0;              // the index of the current reading
+  int average = 0;                // the average
+
+  for (int thisReading = 0; thisReading < numReadings; thisReading++) { //get readings
+    readings[thisReading] = analogRead(irPin);
+    delay(50);
+  }
+  average = (int) getAverage (readings, numReadings);
+  if (average > prevAverage + 10){ //the pen was probably still pointed at the led, so take the previous average
+    average = prevAverage;
+  }
+  prevAverage = average;
+  return average;
+ 
+}
+
+float getAverage (int * array, int len)  
+{
+  long sum = 0L ;  
+  for (int i = 0 ; i < len ; i++){
+    sum += array [i] ;
+  }
+  return  ((float) sum) / len ;  
+}
+
 
 //remove residual current
 void clearPin(int pin) {
