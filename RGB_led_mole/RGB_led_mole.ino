@@ -4,6 +4,17 @@ int bluePin = 3;
 int prevAverage = 999;
 int theshAdd = 15;
 
+#define NB_BITS 8
+#define NB_SAMPLES 5 // must be uneven
+
+bool preamble[] = {0,1,0,1,0,1,0,1};
+bool bit_str_receive[NB_BITS];
+bool samples[NB_SAMPLES];
+bool previous_bit;
+bool initial_run = 1;
+int sample_dly;
+int bit_dly;
+
 
 int irPin = 1;
 #define COMMON_ANODE
@@ -16,6 +27,7 @@ void setup() {
   pinMode(greenPin, OUTPUT);
   pinMode(bluePin, OUTPUT);
   setColor(0, 255, 0);
+  sample_dly = bit_dly / NB_SAMPLES;
 
   Serial.begin(9600);
   clearPin(irPin);
@@ -31,6 +43,9 @@ void loop() {
     activated();
   }
   setColor(0, 255, 0); // Green Color
+  if (checkPreamble()) {
+    changeProgram();
+  }
   delay(800);
 }
 
@@ -106,6 +121,87 @@ void setColor(int redValue, int greenValue, int blueValue) {
   analogWrite(redPin, redValue);
   analogWrite(greenPin, greenValue);
   analogWrite(bluePin, blueValue);  
+}
+
+bool checkPreamble() {
+  for (int count = 0; count < NB_BITS; count ++) {
+    if (preamble[count] != read_bit()) {
+      return false;
+    }
+  }
+  return true;
+}
+
+void changeProgram() {
+
+}
+
+bool read_bit() {
+  int wrong_samples_offset = 0;
+  if (initial_run) {
+    // Don't check previous samples for syncing
+    initial_run = 0;
+  } else {
+    // Determine max number of wrong samples, based on number of samples
+    int nb_allowed_errors = (int) (NB_SAMPLES - 1) / 2;
+
+    // Check whether first or last part has wrong samples.
+    // If first sample is wrong check first part and determine offset
+    if (samples[0] != previous_bit) {
+      wrong_samples_offset++;
+      for (int i = 1; i < nb_allowed_errors; i++) {
+        if (samples[i] != previous_bit)
+          wrong_samples_offset++;
+        else
+          break;
+      }
+    }
+    // If last sample is wrong, check last part and determine offset
+    else if (samples[NB_SAMPLES - 1] != previous_bit) {
+      wrong_samples_offset--;
+      for (int i = NB_SAMPLES - 2; i < nb_allowed_errors; i--) {
+        if (samples[i] != previous_bit)
+          wrong_samples_offset--;
+        else
+          break;
+      }
+    }
+  }
+
+  //Serial.println(wrong_samples_offset);
+
+  // last part has wrong samples
+  if (wrong_samples_offset < 0) {
+    // Write previous last wrong samples into first current samples
+    for (int i = 0; i < -wrong_samples_offset; i++)
+      samples[i] = samples[NB_SAMPLES + wrong_samples_offset - 1];
+    // Collect rest of current samples
+    for (int i = -wrong_samples_offset; i < NB_SAMPLES; i++) {
+      samples[i] = readOne();
+      delay(sample_dly);
+    }
+  }
+  else {
+    // if first part has wrong samples, wait.
+    if (wrong_samples_offset > 0) {
+      //for (int i = 0; i < wrong_samples_offset; i++)
+      //  delay(sample_dly);
+      delay(sample_dly * wrong_samples_offset);
+    }
+    // Collect current samples
+    for (int i = 0; i < NB_SAMPLES; i++) {
+      samples[i] = readOne();
+      delay(sample_dly);
+    }
+  }
+  // Accept middle sample as read bit and return it.
+  previous_bit = samples[(int) NB_SAMPLES / 2];
+  return previous_bit;
+}
+
+bool readOne() { //preamble checken
+  int val = analogRead(1);
+  return val >= th;
 }
 
 //remove residual current
