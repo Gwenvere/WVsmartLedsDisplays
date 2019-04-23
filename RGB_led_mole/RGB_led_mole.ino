@@ -6,6 +6,7 @@ int theshAdd = 15;
 
 #define NB_BITS 8
 #define NB_SAMPLES 5 // must be uneven
+#define NB_CHECKS 3
 
 bool preamble[] = {0,1,0,1,0,1,0,1};
 int program = 1;
@@ -36,8 +37,13 @@ void setup() {
   
 }
 void loop() {
-  if (checkPreamble()) {
-    changeProgram();
+  int checks = NB_CHECKS;
+  while (checks > 0) {
+    if (checkPreamble()) {
+      changeProgram();
+     break;
+    }
+    checks--;
   }
   if (program == 1) {
     mole();
