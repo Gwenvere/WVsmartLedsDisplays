@@ -2,6 +2,7 @@
 //na loslaten van de knop begint reeks terug van begin
 
 #define PIN 3 // pin we're sending on
+#define aPIN A1
 int bit_dly = 50; //delay
 int bstr_dly = 100; //delay
 int bps = 10;
@@ -10,9 +11,7 @@ bool bit_str[] = {0,1,0,0,1,0,0,0};
 bool bit_str_H[] = {0,1,0,0,1,0,0,0};
 
 
-const int buttonPin = 2;     // the number of the pushbutton pin
-const int inputIndicatorPin = 1;
-int buttonState = 0;  
+
 
 void setup() {
   pinMode(PIN, OUTPUT);
@@ -80,13 +79,16 @@ void send_bit_str(bool bit_str[]) {
 
 
 void led_high() {
-  digitalWrite(PIN, HIGH);
+  //digitalWrite(PIN, HIGH);
+  //connect the sending led to the analog pin A1
+  analogWrite(A1, 255);
 }
 void led_low() {
-  digitalWrite(PIN, LOW);
+  //digitalWrite(PIN, LOW);
+    analogWrite(A1, 0);
 }
 
-bool charToBools(char c) {
+/*bool charToBools(char c) {
   bool bits[8];
   for (int i = 0; i < 8; i++) {
     bool m  = bitRead(c, i);
@@ -94,7 +96,7 @@ bool charToBools(char c) {
   }
   return bits;
 
-}
+}*/
 
 void print_bit_str(bool bit_str[]) {
   for (int count = 0; count < NB_BITS; count ++) {
@@ -106,7 +108,7 @@ void print_bit_str(bool bit_str[]) {
   Serial.println("");
 }
 
-void getInput(){
+/*void getInput(){
   digitalWrite(inputIndicatorPin, HIGH);
   for (int count = 0; count < NB_BITS; count ++) {
 
@@ -129,4 +131,4 @@ void getInput(){
   digitalWrite(inputIndicatorPin, LOW);
   delay(600);
   return;
-}
+}*/

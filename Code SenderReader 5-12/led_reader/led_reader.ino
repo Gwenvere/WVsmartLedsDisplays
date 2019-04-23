@@ -28,7 +28,7 @@ void clearPin(int pin) {
 
 bool readOne() { //preamble checken
   int val = analogRead(analogPin);
-  //Serial.println(val);
+  Serial.println(val);
   return val <= th;
 }
 

@@ -74,10 +74,10 @@ void setup() {
 }
 
 void loop() {
- /* delay(del);
+  delay(del);
   int val = analogRead(analogPin);
   Serial.println(val);
-  */
+  
   delay(bit_dly);
   //Serial.println(analogRead(analogPin));
   if (readOne()) { //start signal bitstring
