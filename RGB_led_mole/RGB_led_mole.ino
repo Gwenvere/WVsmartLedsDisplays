@@ -8,13 +8,14 @@ int theshAdd = 15;
 #define NB_SAMPLES 5 // must be uneven
 
 bool preamble[] = {0,1,0,1,0,1,0,1};
+int program = 1;
+int threshold;
 bool bit_str_receive[NB_BITS];
 bool samples[NB_SAMPLES];
 bool previous_bit;
 bool initial_run = 1;
 int sample_dly;
 int bit_dly;
-
 
 int irPin = 1;
 #define COMMON_ANODE
@@ -35,23 +36,30 @@ void setup() {
   
 }
 void loop() {
- // int val = analogRead(irPin);
+  if (checkPreamble()) {
+    changeProgram();
+  }
+  if (program == 1) {
+    mole();
+  }
+  delay(800);
+}
+
+void mole() {
+  // int val = analogRead(irPin);
  // Serial.println(val);
   int rand = random(0,20);
   //Serial.println(rand);
   if (rand > 15){
     activated();
   }
+ 
   setColor(0, 255, 0); // Green Color
-  if (checkPreamble()) {
-    changeProgram();
-  }
-  delay(800);
 }
 
 void activated(){
 
-  int threshold = getBaseValue() + theshAdd;
+  threshold = getBaseValue() + theshAdd;
   setColor(255, 0, 0); // Red Color
   Serial.println("Threshold:");
   Serial.println(threshold);
@@ -133,7 +141,16 @@ bool checkPreamble() {
 }
 
 void changeProgram() {
-
+  program = 0;
+  bool programBits[2];
+  programBits[0] = read_bit();
+  programBits[1] = read_bit();
+  if (programBits[0]) {
+    program += 2;
+  }
+  if (programBits[1]) {
+    program += 1;
+  }
 }
 
 bool read_bit() {
@@ -200,8 +217,8 @@ bool read_bit() {
 }
 
 bool readOne() { //preamble checken
-  int val = analogRead(1);
-  return val >= th;
+  int val = analogRead(irPin);
+  return val >= threshold;
 }
 
 //remove residual current
