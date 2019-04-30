@@ -34,9 +34,9 @@ void send_bit_str(bool bit_str[]) {
 void led_high() {
   //digitalWrite(PIN, HIGH);
   //connect the sending led to the analog pin A1
-  digitalWrite(3, 255);
+  analogWrite(3, 255);
 }
 void led_low() {
   //digitalWrite(PIN, LOW);
-    digitalWrite(3, 0);
+    analogWrite(3, 0);
 }
