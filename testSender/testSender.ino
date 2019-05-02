@@ -1,4 +1,8 @@
-#define PIN 3 // pin we're sending on
+#define K1 2
+#define K2 3
+#define K3 4
+#define L 5
+
 int bit_dly = 50; //delay
 int bstr_dly = 100; //delay
 int bps = 10;
