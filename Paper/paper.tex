@@ -1,8 +1,11 @@
 
 \documentclass{article}
 \usepackage{ijcai11}
+\usepackage[dutch]{babel}
 \usepackage{times}
 \usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{float}
 
 
 \title{Smart LED-displays}
@@ -20,20 +23,39 @@ wouter.jochems@student.kuleuven.be}
 \maketitle
 
 \begin{abstract}
-  Deze paper onderzoekt een mogelijke toepassing van smart LEDs, LEDs aangestuurd door een microcontroller. Specifiek bestuderen we hun mogelijkheden op het gebied van LED-displays. LED-displays komen voor in alle soorten en maten. Helaas zijn deze niet altijd perfect. Het gebruik van smart LEDs zou hier verandering in kunnen brengen. We onderzoeken de mogelijkheid dat de afzonderlijke LEDs van het display met elkaar kunnen communiceren alsook een opstelling waarbij de LEDs signalen krijgen van een externe bron. We concluderen dat vlakke displays voorkomen dat de LEDs zijdelings kunnen communiceren.
+Deze paper onderzoekt een mogelijke toepassing van smart LEDs, LEDs aangestuurd door een micro\-controller. Specifiek bestuderen we hun mogelijkheden op het gebied van LED-displays. LED-displays komen veel voor en in alle soorten en maten. Helaas zijn ze vooral zeer statisch. Ook hebben problemen met de verbinding tussen LEDs en het besturingselement al snel catastrofale gevolgen voor de bruikbaarheid van het display. Het gebruik van smart LEDs zou hier verandering in kunnen brengen. We concluderen dat smart LED-displays niet altijd een goede vervanging zijn voor conventionele LED-displays, maar wel extra mogelijkheden bieden voor meer experimentelere LED-displays.
 \end{abstract}
-
 
 \section{Introductie}
 
-LED-displays worden tegenwoordig vaak gebruikt op evenementen en reclameborden. Deze werken steeds met een centrale verwerkingseenheid. Als er problemen opduiken met deze eenheid of met de verbinding tussen de LEDs en de controller, dan wordt meteen een groot deel van het scherm buiten werking. Ook beperkt de nood aan verbinding tussen controller en LEDs de mogelijkheden van het display.
-Smart LEDs kunnen een oplossing bieden voor deze problemen aangezien elke LED over zijn eigen microcontroller beschikt. Dit voorkomt dat bij een fout een groot deel van het display onbruikbaar wordt. Ook kunnen de verschillende LEDs ten opzichte van elkaar bewegen zonder dat er kabels in de knoop raken of radiogolven met elkaar interfereren. Daarnaast kunnen de smart LEDs met elkaar communiceren en zijn de LEDs dus bewust van elkaar.
-Smart LEDs communiceren met elkaar via VLC (Visual Light Communication). De ingebouwde LED dient als zender en als ontvanger.
+LED-displays worden tegenwoordig vaak gebruikt op evenementen en reclameborden. Deze werken steeds met een centrale verwerkingseenheid. Als er problemen opduiken met deze eenheid of met de verbinding tussen de LEDs en de controller, dan wordt meteen een groot deel van het scherm buiten werking. Ook beperkt de nood aan verbinding tussen controller en LEDs de mogelijkheden van het display. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=7cm]{broken.png}
+\caption{Een LED-display met verbindingsproblemen}
+\end{figure}
+Smart LEDs kunnen een oplossing bieden voor deze problemen. Elke LED beschikt namelijk over zijn eigen microcontroller. Dit voorkomt dat bij een fout een groot deel van het display onbruikbaar wordt. Ook kunnen de verschillende LEDs ten opzichte van elkaar bewegen zonder dat er kabels in de knoop raken of radiogolven met elkaar interfereren. Daarnaast kunnen smart LEDs samen werken door met elkaar te communiceren. Dit gebeurt via VLC (\textit{Visual Ligth Communication}). Hiervoor gebruiken ze hun ingebouwde LED die zowel als zender als als ontvanger kan dienen. 
 
 
 \section{Probleemstelling}
 
-We willen uiteindelijk een LED-display bekomen waarbij de LEDs onderling kunnen communiceren zonder id’s, reageren op een externe lichtbron en blijven werken onder alle lichtomstandigheden. Daarnaast stellen we ons de vraag of een smart LED-display een meerwaarde heeft ten op zichtte van een gewoon LED-display. Tijdens de uitvoering van ons project kwamen nog enkele andere interessante problemen boven die verder in deze tekst besproken worden.
+Het doel van ons onderzoek is het bekomen van een LED-display opgebouwd uit smart LEDs. We gaan na welke problemen opduiken en bedenken hier oplossingen voor. Uiteindelijk stellen we ons de vraag: bieden led displays opgebouwd uit smart LEDs een meerwaarde ten opzichte van conventionele LED displays? 
+
+\smallskip
+
+Hoe definiëren wij een meerwaarde:
+\begin{itemize}
+\item Smart LED-displays kunnen dienen als vervanging voor conventionele LED-displays
+\begin{itemize}
+\item Het Display werkt als 1 geheel
+\item Het Display werkt onder alle licht omstandigheden
+\end{itemize}
+\item Smart LED-displays hebben minstens 1 extra voordeel ten op zichte van conventionele LED-displays
+\end{itemize}
+
+\smallskip
+
+
 
 
 \section{Implementatie}
