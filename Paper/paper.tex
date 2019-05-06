@@ -9,6 +9,8 @@
 \usepackage{cite}
 \usepackage{named}
 \usepackage{url}
+\hyphenpenalty = 10000
+\exhyphenpenalty = 10000
 
 
 \title{Smart LED-displays}
@@ -26,21 +28,22 @@ wouter.jochems@student.kuleuven.be}
 \maketitle
 
 \begin{abstract}
-Deze paper onderzoekt een mogelijke toepassing van smart LEDs, LEDs aangestuurd door een micro\-controller. Specifiek bestuderen we hun mogelijkheden op het gebied van LED-displays. LED-displays komen veel voor en in alle soorten en maten. Helaas zijn ze vooral zeer statisch. Ook hebben problemen met de verbinding tussen LEDs en het besturingselement al snel catastrofale gevolgen voor de bruikbaarheid van het display. Het gebruik van smart LEDs zou hier verandering in kunnen brengen. We concluderen dat smart LED-displays niet altijd een goede vervanging zijn voor conventionele LED-displays, maar wel extra mogelijkheden bieden voor meer experimentelere LED-displays.
+Deze paper onderzoekt een mogelijke toepassing van smart LEDs, LEDs aangestuurd door een microcontroller\cite{smartLED}. Specifiek bestuderen we hun mogelijkheden op het gebied van LED-displays. LED-displays komen veel voor en in alle soorten en maten. Helaas zijn ze vooral zeer statisch. Ook hebben problemen met de verbinding tussen LEDs en het besturingselement al snel catastrofale gevolgen voor de bruikbaarheid van het display. Het gebruik van smart LEDs zou hier verandering in kunnen brengen. We onderzoeken of een LED-display opgebouwd uit smart LEDs niet alleen als volwaardig alternatief kan fungeren, maar ook of deze een meerwaarde bieden. We concluderen dat smart LED-displays niet altijd een goede vervanging zijn voor conventionele LED-displays, maar wel extra mogelijkheden bieden voor meer experimentelere LED-displays.
 \end{abstract}
 
-{\bf Keywords:} smart LED, VLC, LED Display
+{\bf Keywords:} smart LED, VLC, LED, LED Display, Arduino, Microcontroller,
 
 
 \section{Introductie}
 
 LED-displays worden tegenwoordig vaak gebruikt op evenementen en reclameborden. Deze werken steeds met een centrale verwerkingseenheid. Als er problemen opduiken met deze eenheid of met de verbinding tussen de LEDs en de controller, dan wordt meteen een groot deel van het scherm buiten werking gesteld\cite{brokenDisplay}. Ook beperkt de nood aan verbinding tussen controller en LEDs de mogelijkheden van het display. 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \includegraphics[width=7cm]{broken.png}
 \caption{Een LED-display met verbindingsproblemen}
 \end{figure}
-Smart LEDs kunnen een oplossing bieden voor deze problemen. Elke LED beschikt namelijk over zijn eigen microcontroller. Dit voorkomt dat bij een fout een groot deel van het display onbruikbaar wordt. Ook kunnen de verschillende LEDs ten opzichte van elkaar bewegen zonder dat er kabels in de knoop raken of radiogolven met elkaar interfereren. Daarnaast kunnen smart LEDs samen werken door met elkaar te communiceren. Dit gebeurt via VLC (\textit{Visual Ligth Communication}). Hiervoor gebruiken ze hun ingebouwde LED die zowel als zender als als ontvanger kan dienen. 
+
+Smart LEDs kunnen een oplossing bieden voor deze problemen. Elke LED beschikt namelijk over zijn eigen microcontroller. Dit voorkomt dat bij een fout een groot deel van het display onbruikbaar wordt. Ook kunnen de verschillende LEDs ten opzichte van elkaar bewegen zonder dat er kabels in de knoop raken of radiogolven met elkaar interfereren. Daarnaast kunnen smart LEDs samen werken door met elkaar te communiceren. Dit gebeurt via VLC (\textit{Visual Ligth Communication}) waarbij visueel licht gebruikt wordt om informatie door te zenden\cite{VLC}. Hiervoor gebruiken ze hun ingebouwde LED die zowel als zender als als ontvanger kan dienen. 
 
 
 \section{Verwant werk}
@@ -78,15 +81,26 @@ Om een vlak display te bekomen, moeten de LEDs uiteraard zijdelings staan. Dit z
 Met twee naar elkaar gerichte LEDs lukt het ons wel om een bit-string door te zenden. Deze opstelling bestaat uit een eerste LED die een bit-string uitzend, een tweede die deze ontvangt en doorgeeft aan een microcontroller en vervolgens een derde die de ontvangen bit-string weer uitzend in een andere richting. In minder conventionele LED-displays (met een vorm die het toelaat de LEDs naar een elkaar te richten of met bewegende onderdelen) is onderlinge communicatie dus wel mogelijk.
 
 \subsection{Meerdere LEDs}
-Bij aanvang van ons project hoopten we voor het display en het verzenden van informatie dezelfde LED te gebruiken. Dit is niet alleen compacter dan met meerdere LEDs maar het zorgt er ook voor dat we de smart LED niet moeten uitbreiden met extra hardware. Helaas bracht dit extra moeilijkheden met zich mee, zoals informatie die verzonden moest worden over een LED die volgens het display geen licht mag uitzenden. Ook maakte dit onze code veel complexer. Hierdoor kozen we om met een tweede LED te werken. Om er voor te zorgen dat de communicatie-LEDs geen signalen zouden opvangen van de display-LEDs besloten we om de communicatie via een infrarood LED te laten verlopen. Dit hielp ook meteen met het omgevingslicht probleem. 
+Bij aanvang van ons project hoopten we voor het display en het verzenden van informatie dezelfde LED te gebruiken. Dit is niet alleen compacter dan met meerdere LEDs maar het zorgt er ook voor dat we de smart LED niet moeten uitbreiden met extra hardware. Helaas bracht dit extra moeilijkheden met zich mee, zoals informatie die verzonden moest worden over een LED die volgens het display geen licht mag uitzenden. Ook maakte dit onze code veel complexer. 
+
+Om deze redenen kozen we om met een tweede LED te werken. Ook besloten we om de communicatie via een infrarood LED te laten verlopen, zo vermijden we dat de communicatie-LEDs geen signalen zouden opvangen van de display-LEDs. Dit hielp ook meteen met het omgevingslicht probleem. 
 
 \subsection{Externe lichtbron}
-Omdat een tweede LED ook een externe lichtbron is, valt uit het voorgaande al te besluiten dat een goed gericht licht in staat is om te interageren met een smart LED-display. Wij maakten gebruik van een afstandsbediening die naargelang welke knop werd ingeduwd, een ander stukje code uitzond.
+Omdat een tweede LED ook een externe lichtbron is, valt uit het voorgaande al te besluiten dat een goed gericht licht in staat is om te interageren met een smart LED-display. Wij probeerden daarnaast nog twee andere lichtbronnen uit: een infrarood led die aan of uit kan staan en afstandsbediening die verschillende stukjes code kan uitzenden.
+
+In het eerste geval was er consequent een duidelijk reactie op het signaal waar te nemen (zie figuur fotoreeks). 
 
 \subsection{Omgevingslicht}
 Om ervoor te zorgen dat het programma meer omgevingslicht niet als een signaal zou herkennen, voegden we een dynamische threshold toe.
 Onze huidige aanpak neemt bij elke iteratie het gemiddelde van een tiental metingen. Deze waarde wordt vergeleken met de vorige threshold, zo wordt vermeden dat een te hoge waarde wordt aangenomen als er tijdens de metingen al een signaal verzonden wordt.
+
 We merkten op dat bij deze aanpak de threshold zeer veel veranderde. Bij het visualiseren van deze ruis was een duidelijk sinusoïdaal verloop te zien. Dit is te verklaren aan de hand van de spoelen en condensatoren in de microcontroller die constant opladen en ontladen. Eventueel kan hier rekening mee gehouden worden om een nog accuratere threshold te bekomen.
+\begin{figure}
+\centering
+\includegraphics[width=7cm]{ruis.png}
+\caption{De gedetecteerde ruis}
+\end{figure}
+
 
 
 \section{Conclusie}
