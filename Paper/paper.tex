@@ -39,7 +39,7 @@ Deze paper onderzoekt een mogelijke toepassing van smart LEDs, LEDs aangestuurd 
 LED-displays worden tegenwoordig vaak gebruikt op evenementen en reclameborden. Deze werken steeds met een centrale verwerkingseenheid. De individuele LEDs moeten dus steeds aangesloten zijn op een soort grid om signalen te ontvangen waardoor LED-displays zeer statisch zijn. Bovendien zorgen problemen met de controle eenheid of met dit grid meteen voor significante storingen in het display\cite{brokenDisplay} waardoor vaak het hele display zo goed als onbruikbaar wordt.
 \begin{figure}
 \centering
-\includegraphics[width=7cm]{broken.png}
+\includegraphics[width=8cm]{broken.png}
 \caption{Een LED-display met verbindingsproblemen}
 \end{figure}
 
@@ -49,7 +49,7 @@ Smart LEDs kunnen een oplossing bieden voor deze problemen. Elke LED beschikt na
 \section{Verwant werk}
 Dit project is een rechtstreeks vervolg van het project van vorig jaar waarin de smart LEDs ontwikkeld werden. 
 
-%Daarnaast is er al veel onderzoek gebeurd rond LEDs en hun mogelijk tot signaaloverdracht. 
+Daarnaast is er al veel onderzoek gebeurd rond LEDs en hun mogelijk tot signaaloverdracht. Zo werd er al door ETH Zurich en Disney research onderzoek gedaan naar de mogelijkheden van VLC networks waarbij verschillende microcontrollers met elkaar communiceerden via LEDs\cite{VLCNetworks}.
 
 
 \section{Probleemstelling}
@@ -68,12 +68,12 @@ Om onze hypothese te testen maakten we gebruik van LEDs verbonden met Zigduino r
 \subsection{Onderlinge communicatie}
 Om een vlak display te bekomen, moeten de LEDs uiteraard zijdelings staan. Dit zorgde helaas voor problemen, aangezien elke LED een specifieke invalshoek heeft. Wij hadden echter geen LEDs met een hoek van 180\degree ter beschikking. Als oplossing probeerden we een diffuser te gebruiken maar hierdoor verzwakte het licht van onze LEDs waardoor er geen signaal kon worden verzonden. Mogelijk zou dit geen probleem zijn bij sterkere LEDs maar deze zouden problemen kunnen geven omdat ze teveel energie vragen. 
 
-Met twee naar elkaar gerichte LEDs lukt het ons wel om een bit-string door te zenden. Deze opstelling bestaat uit een eerste LED die een bit-string uitzend, een tweede die deze ontvangt en doorgeeft aan een microcontroller en vervolgens een derde die de ontvangen bit-string weer uitzend in een andere richting. In minder conventionele LED-displays (met een vorm die het toelaat de LEDs naar een elkaar te richten of met bewegende onderdelen) is onderlinge communicatie dus wel mogelijk.
+Met twee naar elkaar gerichte LEDs lukt het ons wel om een bit-string door te zenden. Deze opstelling bestaat uit een eerste LED die een bit-string uitzendt, een tweede die deze ontvangt en doorgeeft aan een microcontroller en vervolgens een derde die de ontvangen bit-string weer uitzendt in een andere richting. In minder conventionele LED-displays (met een vorm die het toelaat de LEDs naar een elkaar te richten of met bewegende onderdelen) is onderlinge communicatie dus wel mogelijk.
 
 \subsection{Meerdere LEDs}
-Bij aanvang van ons project hoopten we voor het display en het verzenden van informatie dezelfde LED te gebruiken. Dit is niet alleen compacter dan met meerdere LEDs maar het zorgt er ook voor dat we de smart LED niet moeten uitbreiden met extra hardware. Helaas bracht dit extra moeilijkheden met zich mee, zoals informatie die verzonden moest worden over een LED die volgens het display geen licht mag uitzenden. Ook maakte dit onze code veel complexer. 
+Bij aanvang van ons project hoopten we voor het display en het verzenden van informatie dezelfde LED te gebruiken. Dit is niet alleen compacter dan met meerdere LEDs maar het zorgt er ook voor dat we de smart LED niet moeten uitbreiden met extra hardware. Helaas bracht dit extra moeilijkheden met zich mee, zoals informatie die verzonden moest worden over een LED die volgens het display geen licht mag uitzenden. Ook maakte dit onze code veel complexer en  
 
-Om deze redenen kozen we om met een tweede LED te werken. Ook besloten we om de communicatie via een infrarood LED te laten verlopen, zo vermijden we dat de communicatie-LEDs geen signalen zouden opvangen van de display-LEDs. Dit hielp ook meteen met het omgevingslicht probleem. 
+Om deze redenen kozen we om met een tweede LED te werken. Ook besloten we om de communicatie via een infrarood LED te laten verlopen, zo vermijden we dat de communicatie-LEDs signalen zouden opvangen van de display-LEDs. Bovendien creëert dit meer mogelijkheden voor het display aangezien het volledige RGB spectrum kan gebruikt worden om afbeeldingen weer te geven. 
 
 \subsection{Externe lichtbron}
 Omdat een tweede LED ook een externe lichtbron is, valt uit het voorgaande al te besluiten dat een goed gericht licht in staat is om te interageren met een smart LED-display. 
@@ -88,10 +88,10 @@ De eerste manier bestond uit een reactie van het display wanneer een signaal ver
 \label{fig:mole}
 \end{figure}
 
+Bij de tweede manier wordt er een bit-string verzonden naar het display. Deze manier hebben we getest met een programma waarbij een bit-string gelijk werd gesteld aan een kleur die de display LED moest aannemen of aan een programma dat afgespeeld moest worden.
+
 \subsection{Omgevingslicht}
 Om ervoor te zorgen dat de smart LEDs een verschil zien tussen omgevingslicht en een signaal, moeten we een threshold instellen. Om ervoor te zorgen dat onze code niet afgesteld was op 1 plaats, maakten we deze dynamisch. Op bepaalde tijdstippen in ons programma wordt een meting genomen om de hoeveelheid omgevingslicht vast te stellen. Als threshold wordt dan een iets hogere waarde genomen zodat omgevingslicht niet en een signaal (feller licht) wel over de grens komt.
-
-We merkten op dat deze threshold niet hetzelfde bleef voor eenzelfde hoeveelheid omgevingslicht. Bij het visualiseren van de spanning was te zien dat de gedecteerde ruis sinusoïdaal verloopt (zie figuur \ref{fig:ruis}). Dit valt te verklaren door de RC-kringen in de gebruikte zigduino's. Om de gemeten waarde van het omgevingslicht nauwkeuriger te maken besloten we om deze gelijk te stellen aan het gemiddelde van een tiental metingen met telkens 50ms (ongeveer de helft van een periode) tussen om het sinusoïdale verloop op te vangen. Hierbij tellen we opnieuw een waarde op, vergelijkbaar met de amplitude van de sinus golf, en bekomen zo onze threshold. Dit proces wordt weer meerdere keren herhaald doorheen de uitvoering van het programma.
 
 \begin{figure}
 \centering
@@ -100,6 +100,7 @@ We merkten op dat deze threshold niet hetzelfde bleef voor eenzelfde hoeveelheid
 \label{fig:ruis}
 \end{figure}
 
+We merkten op dat deze threshold niet hetzelfde bleef voor eenzelfde hoeveelheid omgevingslicht. Bij het visualiseren van de spanning was te zien dat de gedecteerde ruis sinusoïdaal verloopt (zie figuur \ref{fig:ruis}). Dit valt te verklaren door de RC-kringen in de gebruikte zigduino's. Om de gemeten waarde van het omgevingslicht nauwkeuriger te maken besloten we om deze gelijk te stellen aan het gemiddelde van een tiental metingen met telkens 50ms (ongeveer de helft van een periode) tussen om het sinusoïdale verloop op te vangen. Hierbij tellen we opnieuw een waarde op, vergelijkbaar met de amplitude van de sinus golf, en bekomen zo onze threshold. Dit proces wordt weer meerdere keren herhaald doorheen de uitvoering van het programma.
 
 
 \section{Conclusie}
