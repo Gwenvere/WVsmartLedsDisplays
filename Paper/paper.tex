@@ -36,37 +36,27 @@ Deze paper onderzoekt een mogelijke toepassing van smart LEDs, LEDs aangestuurd 
 
 \section{Introductie}
 
-LED-displays worden tegenwoordig vaak gebruikt op evenementen en reclameborden. Deze werken steeds met een centrale verwerkingseenheid. Als er problemen opduiken met deze eenheid of met de verbinding tussen de LEDs en de controller, dan wordt meteen een groot deel van het scherm buiten werking gesteld\cite{brokenDisplay}. Ook beperkt de nood aan verbinding tussen controller en LEDs de mogelijkheden van het display. 
+LED-displays worden tegenwoordig vaak gebruikt op evenementen en reclameborden. Deze werken steeds met een centrale verwerkingseenheid. De individuele LEDs moeten dus steeds aangesloten zijn op een soort grid om signalen te ontvangen waardoor LED-displays zeer statisch zijn. Bovendien zorgen problemen met de controle eenheid of met dit grid meteen voor significante storingen in het display\cite{brokenDisplay} waardoor vaak het hele display zo goed als onbruikbaar wordt.
 \begin{figure}
 \centering
 \includegraphics[width=7cm]{broken.png}
 \caption{Een LED-display met verbindingsproblemen}
 \end{figure}
 
-Smart LEDs kunnen een oplossing bieden voor deze problemen. Elke LED beschikt namelijk over zijn eigen microcontroller. Dit voorkomt dat bij een fout een groot deel van het display onbruikbaar wordt. Ook kunnen de verschillende LEDs ten opzichte van elkaar bewegen zonder dat er kabels in de knoop raken of radiogolven met elkaar interfereren. Daarnaast kunnen smart LEDs samen werken door met elkaar te communiceren. Dit gebeurt via VLC (\textit{Visual Ligth Communication}) waarbij visueel licht gebruikt wordt om informatie door te zenden\cite{VLC}. Hiervoor gebruiken ze hun ingebouwde LED die zowel als zender als als ontvanger kan dienen. 
+Smart LEDs kunnen een oplossing bieden voor deze problemen. Elke LED beschikt namelijk over zijn eigen microcontroller. Dit verwijdert de nood aan verbinding met een grid aangezien de besturing aan de LED zelf gebeurd. Hierdoor krijgen de LEDs meer bewegingsvrijheid en wordt het makkelijker om delen van het display te vervangen. Daarbij beperken storingen ten gevolge van controllerproblemen zich tot slechts 1 LED waardoor reparaties aan het display niet al te dringend meer zijn.  Verder kunnen smart LEDs samen werken door met elkaar te communiceren. Dit gebeurt via VLC (\textit{Visual Ligth Communication}) waarbij visueel licht gebruikt wordt om informatie door te zenden\cite{VLC}. Hiervoor gebruiken ze hun ingebouwde LED die zowel als zender als als ontvanger kan dienen. 
 
 
 \section{Verwant werk}
-Dit project is een vervolg van het project van vorig jaar waarin de smart LEDs ontwikkeld werden. 
+Dit project is een rechtstreeks vervolg van het project van vorig jaar waarin de smart LEDs ontwikkeld werden. 
+
+%Daarnaast is er al veel onderzoek gebeurd rond LEDs en hun mogelijk tot signaaloverdracht. 
 
 
 \section{Probleemstelling}
 
-Het doel van ons onderzoek is het bekomen van een LED-display opgebouwd uit smart LEDs. We gaan na welke problemen opduiken en bedenken hier oplossingen voor. Uiteindelijk stellen we ons de vraag: bieden led displays opgebouwd uit smart LEDs een meerwaarde ten opzichte van conventionele LED displays? 
+Het doel van ons onderzoek is het bekomen van een LED-display opgebouwd uit smart LEDs. We gaan na welke problemen opduiken en bedenken hier oplossingen voor. Uiteindelijk stellen we ons de vraag: bieden led displays opgebouwd uit smart LEDs een meerwaarde ten opzichte van conventionele LED displays?
 
-\smallskip
-
-Hoe definiëren wij een meerwaarde:
-\begin{itemize}
-\item Smart LED-displays kunnen dienen als vervanging voor conventionele LED-displays
-\begin{itemize}
-\item Het Display werkt als 1 geheel
-\item Het Display werkt onder alle licht omstandigheden
-\end{itemize}
-\item Smart LED-displays hebben minstens 1 extra voordeel ten op zichte van conventionele LED-displays
-\end{itemize}
-
-\smallskip
+Onze belangrijkste criteria zijn de flexibiliteit van het display en de mogelijkheid tot interactie met het display. Met flexibiliteit bedoelen we dat het mogelijk moet zijn om de smart LEDs van plaats te wisselen zonder dat hiervoor code moet worden aangepast. Dit betekent dat de smart LEDs onafhankelijk moeten werken ten op zichte van hun positie in het display. Interactiemogelijkheden zien we vooral aan de hand van een lichtpen, om individuele smart LEDs aan te sturen, of een floodlight om grotere groepen smart LEDs aan te spreken.
 
 
 \section{Implementatie}
@@ -86,19 +76,28 @@ Bij aanvang van ons project hoopten we voor het display en het verzenden van inf
 Om deze redenen kozen we om met een tweede LED te werken. Ook besloten we om de communicatie via een infrarood LED te laten verlopen, zo vermijden we dat de communicatie-LEDs geen signalen zouden opvangen van de display-LEDs. Dit hielp ook meteen met het omgevingslicht probleem. 
 
 \subsection{Externe lichtbron}
-Omdat een tweede LED ook een externe lichtbron is, valt uit het voorgaande al te besluiten dat een goed gericht licht in staat is om te interageren met een smart LED-display. Wij probeerden daarnaast nog twee andere lichtbronnen uit: een infrarood led die aan of uit kan staan en afstandsbediening die verschillende stukjes code kan uitzenden.
+Omdat een tweede LED ook een externe lichtbron is, valt uit het voorgaande al te besluiten dat een goed gericht licht in staat is om te interageren met een smart LED-display. 
 
-In het eerste geval was er consequent een duidelijk reactie op het signaal waar te nemen (zie figuur fotoreeks). 
+Wij onderzochten twee manieren waarop interactie met het LED-display mogelijk was. Dit aan de hand van een lichtpen (een LED met een microcontroller achter) die op een bepaalde manier geprogrammeerd was.
 
-\subsection{Omgevingslicht}
-Om ervoor te zorgen dat het programma meer omgevingslicht niet als een signaal zou herkennen, voegden we een dynamische threshold toe.
-Onze huidige aanpak neemt bij elke iteratie het gemiddelde van een tiental metingen. Deze waarde wordt vergeleken met de vorige threshold, zo wordt vermeden dat een te hoge waarde wordt aangenomen als er tijdens de metingen al een signaal verzonden wordt.
-
-We merkten op dat bij deze aanpak de threshold zeer veel veranderde. Bij het visualiseren van deze ruis was een duidelijk sinusoïdaal verloop te zien. Dit is te verklaren aan de hand van de spoelen en condensatoren in de microcontroller die constant opladen en ontladen. Eventueel kan hier rekening mee gehouden worden om een nog accuratere threshold te bekomen.
+De eerste manier bestond uit een reactie van het display wanneer een signaal verzonden werd, versus wanneer er geen verzonden werd. We programmeerden hiervoor een soort "\textit{Whack-a-mole}" spel waarbij de speler een bepaalde tijd heeft om te reageren op een licht verandering door de lichtpen hierover te laten schijnen. Zowel bij succes als bij mislukking geeft het display feedback door weer van licht te veranderen (zie figuur \ref{fig:mole}).
 \begin{figure}
 \centering
-\includegraphics[width=7cm]{ruis.png}
-\caption{De gedetecteerde ruis}
+\includegraphics[width=8cm]{moleSequence.png}
+\caption{1:inactief, 2:vraagt om respons, 3:geen respons, \mbox{4: wel respons}}
+\label{fig:mole}
+\end{figure}
+
+\subsection{Omgevingslicht}
+Om ervoor te zorgen dat de smart LEDs een verschil zien tussen omgevingslicht en een signaal, moeten we een threshold instellen. Om ervoor te zorgen dat onze code niet afgesteld was op 1 plaats, maakten we deze dynamisch. Op bepaalde tijdstippen in ons programma wordt een meting genomen om de hoeveelheid omgevingslicht vast te stellen. Als threshold wordt dan een iets hogere waarde genomen zodat omgevingslicht niet en een signaal (feller licht) wel over de grens komt.
+
+We merkten op dat deze threshold niet hetzelfde bleef voor eenzelfde hoeveelheid omgevingslicht. Bij het visualiseren van de spanning was te zien dat de gedecteerde ruis sinusoïdaal verloopt (zie figuur \ref{fig:ruis}). Dit valt te verklaren door de RC-kringen in de gebruikte zigduino's. Om de gemeten waarde van het omgevingslicht nauwkeuriger te maken besloten we om deze gelijk te stellen aan het gemiddelde van een tiental metingen met telkens 50ms (ongeveer de helft van een periode) tussen om het sinusoïdale verloop op te vangen. Hierbij tellen we opnieuw een waarde op, vergelijkbaar met de amplitude van de sinus golf, en bekomen zo onze threshold. Dit proces wordt weer meerdere keren herhaald doorheen de uitvoering van het programma.
+
+\begin{figure}
+\centering
+\includegraphics[width=8cm]{ruis.png}
+\caption{De gedetecteerde ruis, gemeten spanning in functie van de tijd}
+\label{fig:ruis}
 \end{figure}
 
 
@@ -108,7 +107,7 @@ We concluderen dat smart LED-displays geen alternatief zijn voor conventionele L
 
 
 \section{Verder werk}
-Als vervolg op dit project zou een display opgebouwd uit echte smart LEDs gemaakt kunnen worden. Het zou ook interessant zijn mocht er een oplossing gevonden worden voor het probleem met de invalshoek van de LEDs zodat zijdelings gecommuniceerd kan worden. Verder is er nog de reeds voorgestelde aanpassing aan de threshold die rekening zou kunnen houden met de sinusoïdale ruis.
+Als vervolg op dit project zou een display opgebouwd uit echte smart LEDs gemaakt kunnen worden. Het zou ook interessant zijn mocht er een oplossing gevonden worden voor het probleem met de invalshoek van de LEDs zodat zijdelings gecommuniceerd kan worden.
 
 
 \bibliographystyle{named}
