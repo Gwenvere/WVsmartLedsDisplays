@@ -1,0 +1,414 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.13)  8 MAY 2019 16:45
+entering extended mode
+**./paper.tex
+(paper.tex
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 75 language(s) loaded.
+("E:\Program Files\Miktex\tex\latex\base\article.cls"
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+("E:\Program Files\Miktex\tex\latex\base\size10.clo"
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (ijcai11.sty
+Conference Style, version of 6 September 1995 (revised Nov 2010)
+\titlebox=\skip43
+Named Citation Style, version of 30 November 1994
+) ("E:\Program Files\Miktex\tex\generic\babel\babel.sty"
+Package: babel 2018/02/14 3.18 The Babel package
+
+("E:\Program Files\Miktex\tex\generic\babel\switch.def"
+File: switch.def 2018/02/14 3.18 Babel switching mechanism
+)
+*************************************
+* Local config file bblopts.cfg used
+*
+("E:\Program Files\Miktex\tex\latex\arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("E:\Program Files\Miktex\tex\latex\babel-dutch\dutch.ldf"
+Language: dutch 2005/03/30 v3.8i Dutch support from the babel system
+
+("E:\Program Files\Miktex\tex\generic\babel\babel.def"
+File: babel.def 2018/02/14 3.18 Babel common definitions
+\babel@savecnt=\count87
+\U@D=\dimen103
+
+("E:\Program Files\Miktex\tex\generic\babel\txtbabel.def")
+\bbl@dirlevel=\count88
+)
+Package babel Info: Making " an active character on input line 132.
+))
+("E:\Program Files\Miktex\tex\latex\psnfss\times.sty"
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+("E:\Program Files\Miktex\tex\latex\was\gensymb.sty"
+Package: gensymb 2003/07/02 v1.0 (WaS)
+)
+("E:\Program Files\Miktex\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("E:\Program Files\Miktex\tex\latex\graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("E:\Program Files\Miktex\tex\latex\graphics\graphics.sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("E:\Program Files\Miktex\tex\latex\graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("E:\Program Files\Miktex\tex\latex\graphics-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("E:\Program Files\Miktex\tex\latex\graphics-def\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+("E:\Program Files\Miktex\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count89
+\float@exts=\toks15
+\float@box=\box26
+\@float@everytoks=\toks16
+\@floatcapt=\box27
+)
+("E:\Program Files\Miktex\tex\latex\cite\cite.sty"
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+) (named.sty)
+("E:\Program Files\Miktex\tex\latex\url\url.sty"
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+) (paper.aux)
+\openout1 = `paper.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 26.
+
+("E:\Program Files\Miktex\tex\latex\psnfss\ot1ptm.fd"
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+LaTeX Info: Redefining \celsius on input line 26.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 26.
+
+
+
+Package gensymb Warning: Not defining \perthousand.
+
+LaTeX Info: Redefining \ohm on input line 26.
+Package gensymb Info: Using \Omega for \ohm on input line 26.
+
+Package gensymb Warning: Not defining \micro.
+
+("E:\Program Files\Miktex\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count90
+\scratchdimen=\dimen106
+\scratchbox=\box28
+\nofMPsegments=\count91
+\nofMParguments=\count92
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count93
+\MPscratchDim=\dimen107
+\MPnumerator=\count94
+\makeMPintoPDFobject=\count95
+\everyMPtoPDFconversion=\toks18
+) ("E:\Program Files\Miktex\tex\latex\oberdiek\epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("E:\Program Files\Miktex\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("E:\Program Files\Miktex\tex\latex\oberdiek\grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+("E:\Program Files\Miktex\tex\generic\oberdiek\kvdefinekeys.sty"
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+("E:\Program Files\Miktex\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+("E:\Program Files\Miktex\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+("E:\Program Files\Miktex\tex\generic\oberdiek\kvsetkeys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("E:\Program Files\Miktex\tex\generic\oberdiek\etexcmds.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+("E:\Program Files\Miktex\tex\generic\oberdiek\ifluatex.sty"
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+("E:\Program Files\Miktex\tex\generic\oberdiek\pdftexcmds.sty"
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("E:\Program Files\Miktex\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 28.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 28.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 28.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 28.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 28.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+
+
+LaTeX Warning: Citation `smartLED' on page 1 undefined on input line 31.
+
+
+Underfull \hbox (badness 2698) in paragraph at lines 31--32
+\OT1/ptm/m/n/10 van Smart-LEDs, LEDs aan-ge-stuurd door een
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+\OT1/ptm/m/n/10 LED-displays ken-nen veel toe-pas-sin-gen in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+\OT1/ptm/m/n/10 ver-schil-lende ge-bie-den, zo-als mar-ke-ting en
+ []
+
+
+Underfull \hbox (badness 2005) in paragraph at lines 31--32
+\OT1/ptm/m/n/10 een goede ver-van-ging zijn voor con-ven-ti-o-nele
+ []
+
+
+Underfull \hbox (badness 4193) in paragraph at lines 31--32
+\OT1/ptm/m/n/10 LED-displays, maar wel ex-tra mo-ge-lijk-he-den
+ []
+
+
+Underfull \hbox (badness 4416) in paragraph at lines 34--35
+[]\OT1/ptm/b/n/10 Keywords: \OT1/ptm/m/n/10 Smart-LED, VLC, LED, LED Dis-play,
+ []
+
+
+LaTeX Warning: Citation `brokenDisplay' on page 1 undefined on input line 39.
+
+<broken.png, id=1, 575.90157pt x 373.395pt>
+File: broken.png Graphic file (type png)
+<use broken.png>
+Package pdftex.def Info: broken.png  used on input line 42.
+(pdftex.def)             Requested size: 227.62204pt x 147.58342pt.
+
+Underfull \hbox (badness 5939) in paragraph at lines 39--45
+\OT1/ptm/m/n/10 LED-displays wor-den te-gen-woor-dig vaak ge-bruikt op
+ []
+
+
+Underfull \hbox (badness 1571) in paragraph at lines 39--45
+\OT1/ptm/m/n/10 met een in-ter-face. De fy-sieke ei-gen-schap-pen van het
+ []
+
+
+LaTeX Warning: Citation `VLC' on page 1 undefined on input line 46.
+
+
+Underfull \hbox (badness 1253) in paragraph at lines 46--47
+[]\OT1/ptm/m/n/10 Smart LEDs kun-nen een op-los-sing bie-den voor deze
+ []
+
+
+Underfull \hbox (badness 1789) in paragraph at lines 46--47
+\OT1/ptm/m/n/10 met een grid aan-ge-zien de be-stu-ring bij de LED zelf
+ []
+
+
+Underfull \hbox (badness 1325) in paragraph at lines 46--47
+\OT1/ptm/m/n/10 en wordt het mak-ke-lij-ker om de-len van het dis-play te
+ []
+
+
+Underfull \hbox (badness 3977) in paragraph at lines 46--47
+\OT1/ptm/m/n/10 con-trol-ler-pro-ble-men zich tot slechts 1 LED waar-door
+ []
+
+
+LaTeX Warning: Citation `VLCNetworks' on page 1 undefined on input line 52.
+
+
+Underfull \hbox (badness 1590) in paragraph at lines 57--58
+\OT1/ptm/m/n/10 Het doel van ons on-der-zoek is na-gaan of een dis-play
+ []
+
+
+Underfull \hbox (badness 3557) in paragraph at lines 57--58
+\OT1/ptm/m/n/10 op-ge-bouwd uit Smart-LEDs een meer-waarde biedt ten
+ []
+
+[1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+
+
+ <./broken.png>]
+Underfull \hbox (badness 1158) in paragraph at lines 61--62
+\OT1/ptm/m/n/10 Aan de hand van een flood-light, een licht-pen voor-zien
+ []
+
+
+Underfull \hbox (badness 1210) in paragraph at lines 65--66
+\OT1/ptm/m/n/10 ge-bruik van in-fra-rood LEDs voor de com-mu-ni-ca-tie om
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 70.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 71.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 71.
+
+Underfull \hbox (badness 3209) in paragraph at lines 71--72
+\OT1/ptm/m/n/10 zij-de-lings staan. Dit zorgde he-laas voor pro-ble-men,
+ []
+
+
+Underfull \hbox (badness 2635) in paragraph at lines 71--72
+\OT1/ptm/m/n/10 had-den ech-ter geen LEDs met een hoek van 180$[]$ter
+ []
+
+
+Underfull \hbox (badness 1394) in paragraph at lines 76--77
+\OT1/ptm/m/n/10 over een LED die vol-gens het dis-play geen licht mag
+ []
+
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no « in font ptmr7t!
+<moleSequence.png, id=11, 729.927pt x 242.8272pt>
+File: moleSequence.png Graphic file (type png)
+<use moleSequence.png>
+Package pdftex.def Info: moleSequence.png  used on input line 88.
+(pdftex.def)             Requested size: 227.62204pt x 75.72398pt.
+
+Underfull \hbox (badness 2277) in paragraph at lines 96--97
+\OT1/ptm/m/n/10 tus-sen om-ge-vings-licht en een sig-naal, moe-ten we een
+ []
+
+<ruis.png, id=12, 452.4403pt x 258.9675pt>
+File: ruis.png Graphic file (type png)
+<use ruis.png>
+Package pdftex.def Info: ruis.png  used on input line 100.
+(pdftex.def)             Requested size: 227.62204pt x 130.28557pt.
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no ¯ in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no ¯ in font ptmr7t!
+
+Underfull \hbox (badness 2213) in paragraph at lines 105--106
+\OT1/ptm/m/n/10 van de span-ning was te zien dat de ge-dec-teerde ruis
+ []
+
+
+Underfull \hbox (badness 1810) in paragraph at lines 105--106
+\OT1/ptm/m/n/10 waarde van het om-ge-vings-licht nauw-keu-ri-ger te ma-ken
+ []
+
+
+Underfull \hbox (badness 1472) in paragraph at lines 109--110
+\OT1/ptm/m/n/10 We con-clu-de-ren dat SmartLED-displays geen al-ter-na-tief
+ []
+
+
+Underfull \hbox (badness 1173) in paragraph at lines 109--110
+\OT1/ptm/m/n/10 zijn voor con-ven-ti-o-nele LED-displays maar dat ze toch
+ []
+
+
+Underfull \hbox (badness 6412) in paragraph at lines 109--110
+\OT1/ptm/m/n/10 over be-paalde ei-gen-schap-pen be-schik-ken die ze niet
+ []
+
+
+Underfull \hbox (badness 1137) in paragraph at lines 109--110
+\OT1/ptm/m/n/10 in-ter-ac-tief ge-bruikt wor-den als sim-pele, vlakke dis-plays
+
+ []
+
+
+Underfull \hbox (badness 1472) in paragraph at lines 109--110
+\OT1/ptm/m/n/10 ver-bin-dings-pro-ble-men. Daar-naast kun-nen ze in an-dere
+ []
+
+[2 <./moleSequence.png>]
+No file paper.bbl.
+[3
+
+ <./ruis.png>] (paper.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 2363 strings out of 493305
+ 32460 string characters out of 3140590
+ 103883 words of memory out of 3000000
+ 5869 multiletter control sequences out of 15000+200000
+ 18748 words of font info for 39 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,10n,25p,848b,244s stack positions out of 5000i,500n,10000p,200000b,50000s
+{E:/Program Files/Miktex/fonts/enc/dvips/base/8r.enc}<E:/Program Files/Miktex
+/fonts/type1/public/amsfonts/cm/cmsy7.pfb><E:/Program Files/Miktex/fonts/type1/
+urw/times/utmb8a.pfb><E:/Program Files/Miktex/fonts/type1/urw/times/utmr8a.pfb>
+<E:/Program Files/Miktex/fonts/type1/urw/times/utmri8a.pfb>
+Output written on paper.pdf (3 pages, 1809513 bytes).
+PDF statistics:
+ 36 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+
