@@ -1,11 +1,23 @@
 #include <moleGame.h>
+#include <brushGame.h>
+#include <baseLed.h>
+#include <coloredBrush.h>
+#include <simonGame.h>
 
-moleGame mole(1,2,3,1);
+int irPin = 1;
+moleGame mole(irPin);
+brushGame brush(irPin);
+coloredBrush colorB(irPin);
+simonGame simon(irPin);
+
 void setup() {
   Serial.begin(9600);
 }
 
 void loop() {
-  mole.start();
+   colorB.start(60000);
+   //brush.start(10000);
+  //simon.start(30000);
+
 
 }

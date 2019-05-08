@@ -1,0 +1,2 @@
+moleGame KEYWORD1
+start KEYWORD2
