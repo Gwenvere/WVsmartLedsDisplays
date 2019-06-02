@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.13)  8 MAY 2019 16:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.13)  2 JUN 2019 16:45
 entering extended mode
 **./paper.tex
 (paper.tex
@@ -203,212 +203,283 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 28.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 28.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
-
-
-LaTeX Warning: Citation `smartLED' on page 1 undefined on input line 31.
-
 
 Underfull \hbox (badness 2698) in paragraph at lines 31--32
 \OT1/ptm/m/n/10 van Smart-LEDs, LEDs aan-ge-stuurd door een
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
-\OT1/ptm/m/n/10 LED-displays ken-nen veel toe-pas-sin-gen in
+Underfull \hbox (badness 1859) in paragraph at lines 31--32
+\OT1/ptm/m/n/10 mi-cro-con-trol-ler [Van-de-cau-ter and Veys, 2018].
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
-\OT1/ptm/m/n/10 ver-schil-lende ge-bie-den, zo-als mar-ke-ting en
+Underfull \hbox (badness 1067) in paragraph at lines 31--32
+\OT1/ptm/m/n/10 mar-ke-ting en en-ter-tain-ment. De fun-da-men-tele
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 31--32
-\OT1/ptm/m/n/10 een goede ver-van-ging zijn voor con-ven-ti-o-nele
+Underfull \hbox (badness 2884) in paragraph at lines 31--32
+\OT1/ptm/m/n/10 pro-ble-men zor-gen. We on-der-zoe-ken of een
  []
 
 
-Underfull \hbox (badness 4193) in paragraph at lines 31--32
-\OT1/ptm/m/n/10 LED-displays, maar wel ex-tra mo-ge-lijk-he-den
+Underfull \hbox (badness 4366) in paragraph at lines 31--32
+\OT1/ptm/m/n/10 dat SmartLED-displays niet al-tijd een goede
  []
 
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
 
 Underfull \hbox (badness 4416) in paragraph at lines 34--35
 []\OT1/ptm/b/n/10 Keywords: \OT1/ptm/m/n/10 Smart-LED, VLC, LED, LED Dis-play,
  []
 
 
-LaTeX Warning: Citation `brokenDisplay' on page 1 undefined on input line 39.
+Underfull \hbox (badness 1048) in paragraph at lines 39--40
+\OT1/ptm/m/n/10 LED-displays wor-den vaak ge-bruikt op eve-ne-men-ten en
+ []
 
+
+Underfull \hbox (badness 3557) in paragraph at lines 39--40
+\OT1/ptm/m/n/10 re-cla-me-bor-den. De hui-dige dis-plays wer-ken meestal
+ []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 39--40
+\OT1/ptm/m/n/10 iden-ti-fi-ce-ren drie be-per-kin-gen waar-voor we on-der-zoe-k
+en
+ []
+
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ú in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ù in font ptmr7t!
+
+Underfull \hbox (badness 3000) in paragraph at lines 46--47
+\OT1/ptm/m/n/10 ma-ken we ge-bruikt van een licht-pen, dit is een
+ []
+
+
+Underfull \hbox (badness 1331) in paragraph at lines 46--47
+\OT1/ptm/m/n/10 om zo sig-na-len over te bren-gen aan de hand van
+ []
+
+Missing character: There is no √ in font ptmr7t!
+Missing character: There is no © in font ptmr7t!
+Missing character: There is no √ in font ptmr7t!
+Missing character: There is no © in font ptmr7t!
 <broken.png, id=1, 575.90157pt x 373.395pt>
 File: broken.png Graphic file (type png)
 <use broken.png>
-Package pdftex.def Info: broken.png  used on input line 42.
+Package pdftex.def Info: broken.png  used on input line 53.
 (pdftex.def)             Requested size: 227.62204pt x 147.58342pt.
-
-Underfull \hbox (badness 5939) in paragraph at lines 39--45
-\OT1/ptm/m/n/10 LED-displays wor-den te-gen-woor-dig vaak ge-bruikt op
- []
-
-
-Underfull \hbox (badness 1571) in paragraph at lines 39--45
-\OT1/ptm/m/n/10 met een in-ter-face. De fy-sieke ei-gen-schap-pen van het
- []
-
-
-LaTeX Warning: Citation `VLC' on page 1 undefined on input line 46.
-
-
-Underfull \hbox (badness 1253) in paragraph at lines 46--47
-[]\OT1/ptm/m/n/10 Smart LEDs kun-nen een op-los-sing bie-den voor deze
- []
-
-
-Underfull \hbox (badness 1789) in paragraph at lines 46--47
-\OT1/ptm/m/n/10 met een grid aan-ge-zien de be-stu-ring bij de LED zelf
- []
-
-
-Underfull \hbox (badness 1325) in paragraph at lines 46--47
-\OT1/ptm/m/n/10 en wordt het mak-ke-lij-ker om de-len van het dis-play te
- []
-
-
-Underfull \hbox (badness 3977) in paragraph at lines 46--47
-\OT1/ptm/m/n/10 con-trol-ler-pro-ble-men zich tot slechts 1 LED waar-door
- []
-
-
-LaTeX Warning: Citation `VLCNetworks' on page 1 undefined on input line 52.
-
-
-Underfull \hbox (badness 1590) in paragraph at lines 57--58
-\OT1/ptm/m/n/10 Het doel van ons on-der-zoek is na-gaan of een dis-play
- []
-
-
-Underfull \hbox (badness 3557) in paragraph at lines 57--58
-\OT1/ptm/m/n/10 op-ge-bouwd uit Smart-LEDs een meer-waarde biedt ten
- []
-
 [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 
  <./broken.png>]
-Underfull \hbox (badness 1158) in paragraph at lines 61--62
+Underfull \hbox (badness 1590) in paragraph at lines 66--67
+\OT1/ptm/m/n/10 Het doel van ons on-der-zoek is na-gaan of een dis-play
+ []
+
+
+Underfull \hbox (badness 3557) in paragraph at lines 66--67
+\OT1/ptm/m/n/10 op-ge-bouwd uit Smart-LEDs een meer-waarde biedt ten
+ []
+
+
+Underfull \hbox (badness 4647) in paragraph at lines 66--67
+\OT1/ptm/m/n/10 flexi-bi-li-teit, in-ter-ac-ti-vi-teit en mo-du-la-ti-teit. Daa
+r-naast
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
+\OT1/ptm/m/n/10 on-der-zoe-ken we welke be-ko-mende be-per-kin-gen een
+ []
+
+
+Underfull \hbox (badness 1158) in paragraph at lines 70--71
 \OT1/ptm/m/n/10 Aan de hand van een flood-light, een licht-pen voor-zien
  []
 
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
 
-Underfull \hbox (badness 1210) in paragraph at lines 65--66
-\OT1/ptm/m/n/10 ge-bruik van in-fra-rood LEDs voor de com-mu-ni-ca-tie om
+Underfull \hbox (badness 1990) in paragraph at lines 77--79
+\OT1/ptm/m/n/10 De uit-ein-de-lijke im-ple-men-ta-tie zou ge-bruik ma-ken van
+ []
+
+
+Underfull \hbox (badness 2213) in paragraph at lines 77--79
+\OT1/ptm/m/n/10 een stuk min-der com-plex maakt. In-dien we ge-bruik
+ []
+
+
+Underfull \hbox (badness 1924) in paragraph at lines 77--79
+\OT1/ptm/m/n/10 no-dig om re-ke-ning te hou-den met het om-ge-vings-licht.
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 70.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 88.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 71.
+(Font)              <7> on input line 94.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 71.
+(Font)              <5> on input line 94.
 
-Underfull \hbox (badness 3209) in paragraph at lines 71--72
-\OT1/ptm/m/n/10 zij-de-lings staan. Dit zorgde he-laas voor pro-ble-men,
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
+[]\OT1/ptm/m/n/10 Afstand
  []
 
 
-Underfull \hbox (badness 2635) in paragraph at lines 71--72
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
+\OT1/ptm/m/n/10 tot
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
+\OT1/ptm/m/n/10 licht-bron
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
+[]\OT1/ptm/m/n/10 Reverse
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
+\OT1/ptm/m/n/10 Bias
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
+\OT1/ptm/m/n/10 ge-me-ten
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
+[]\OT1/ptm/m/n/10 Forward
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
+\OT1/ptm/m/n/10 Bias
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
+\OT1/ptm/m/n/10 ge-me-ten
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
+[]\OT1/ptm/m/n/10 Geen
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
+\OT1/ptm/m/n/10 ex-tra
+ []
+
+
+Underfull \hbox (badness 1484) in paragraph at lines 116--117
+[]\OT1/ptm/m/n/10 Om een vlak dis-play te be-ko-men, moe-ten de LEDs
+ []
+
+
+Underfull \hbox (badness 2635) in paragraph at lines 116--117
 \OT1/ptm/m/n/10 had-den ech-ter geen LEDs met een hoek van 180$[]$ter
  []
 
-
-Underfull \hbox (badness 1394) in paragraph at lines 76--77
+[2]
+Underfull \hbox (badness 1394) in paragraph at lines 121--122
 \OT1/ptm/m/n/10 over een LED die vol-gens het dis-play geen licht mag
  []
 
 Missing character: There is no √ in font ptmr7t!
 Missing character: There is no ´ in font ptmr7t!
-<moleSequence.png, id=11, 729.927pt x 242.8272pt>
+<moleSequence.png, id=15, 729.927pt x 242.8272pt>
 File: moleSequence.png Graphic file (type png)
 <use moleSequence.png>
-Package pdftex.def Info: moleSequence.png  used on input line 88.
+Package pdftex.def Info: moleSequence.png  used on input line 133.
 (pdftex.def)             Requested size: 227.62204pt x 75.72398pt.
 
-Underfull \hbox (badness 2277) in paragraph at lines 96--97
+Underfull \hbox (badness 2277) in paragraph at lines 141--142
 \OT1/ptm/m/n/10 tus-sen om-ge-vings-licht en een sig-naal, moe-ten we een
  []
 
-<ruis.png, id=12, 452.4403pt x 258.9675pt>
+<ruis.png, id=16, 452.4403pt x 258.9675pt>
 File: ruis.png Graphic file (type png)
 <use ruis.png>
-Package pdftex.def Info: ruis.png  used on input line 100.
+Package pdftex.def Info: ruis.png  used on input line 145.
 (pdftex.def)             Requested size: 227.62204pt x 130.28557pt.
 Missing character: There is no √ in font ptmr7t!
 Missing character: There is no Ø in font ptmr7t!
 Missing character: There is no √ in font ptmr7t!
 Missing character: There is no Ø in font ptmr7t!
 
-Underfull \hbox (badness 2213) in paragraph at lines 105--106
+Underfull \hbox (badness 2213) in paragraph at lines 150--151
 \OT1/ptm/m/n/10 van de span-ning was te zien dat de ge-dec-teerde ruis
  []
 
 
-Underfull \hbox (badness 1810) in paragraph at lines 105--106
+Underfull \hbox (badness 1810) in paragraph at lines 150--151
 \OT1/ptm/m/n/10 waarde van het om-ge-vings-licht nauw-keu-ri-ger te ma-ken
  []
 
 
-Underfull \hbox (badness 1472) in paragraph at lines 109--110
+Underfull \hbox (badness 1472) in paragraph at lines 154--155
 \OT1/ptm/m/n/10 We con-clu-de-ren dat SmartLED-displays geen al-ter-na-tief
  []
 
 
-Underfull \hbox (badness 1173) in paragraph at lines 109--110
+Underfull \hbox (badness 1173) in paragraph at lines 154--155
 \OT1/ptm/m/n/10 zijn voor con-ven-ti-o-nele LED-displays maar dat ze toch
  []
 
 
-Underfull \hbox (badness 6412) in paragraph at lines 109--110
+Underfull \hbox (badness 6412) in paragraph at lines 154--155
 \OT1/ptm/m/n/10 over be-paalde ei-gen-schap-pen be-schik-ken die ze niet
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 109--110
+Underfull \hbox (badness 1137) in paragraph at lines 154--155
 \OT1/ptm/m/n/10 in-ter-ac-tief ge-bruikt wor-den als sim-pele, vlakke dis-plays
 
  []
 
 
-Underfull \hbox (badness 1472) in paragraph at lines 109--110
+Underfull \hbox (badness 1472) in paragraph at lines 154--155
 \OT1/ptm/m/n/10 ver-bin-dings-pro-ble-men. Daar-naast kun-nen ze in an-dere
  []
 
-[2 <./moleSequence.png>]
-No file paper.bbl.
-[3
+(paper.bbl [3 <./moleSequence.png> <./ruis.png>]
+Underfull \hbox (badness 7099) in paragraph at lines 9--11
+\OT1/ptm/m/n/10 Fli-crr: Friendly led in-te-gra-ted & com-pact ra-dio
+ []
 
- <./ruis.png>] (paper.aux)
+) [4
 
-LaTeX Warning: There were undefined references.
-
- ) 
+] (paper.aux) ) 
 Here is how much of TeX's memory you used:
- 2363 strings out of 493305
- 32460 string characters out of 3140590
- 103883 words of memory out of 3000000
- 5869 multiletter control sequences out of 15000+200000
+ 2368 strings out of 493305
+ 32582 string characters out of 3140590
+ 106941 words of memory out of 3000000
+ 5872 multiletter control sequences out of 15000+200000
  18748 words of font info for 39 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,10n,25p,848b,244s stack positions out of 5000i,500n,10000p,200000b,50000s
-{E:/Program Files/Miktex/fonts/enc/dvips/base/8r.enc}<E:/Program Files/Miktex
-/fonts/type1/public/amsfonts/cm/cmsy7.pfb><E:/Program Files/Miktex/fonts/type1/
-urw/times/utmb8a.pfb><E:/Program Files/Miktex/fonts/type1/urw/times/utmr8a.pfb>
-<E:/Program Files/Miktex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (3 pages, 1809513 bytes).
+ 41i,10n,25p,1053b,244s stack positions out of 5000i,500n,10000p,200000b,50000s
+{E:/Program Files/Miktex/fonts/enc/dvips/base/8r.enc}<E:/Program
+ Files/Miktex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><E:/Program Files/Miktex
+/fonts/type1/urw/times/utmb8a.pfb><E:/Program Files/Miktex/fonts/type1/urw/time
+s/utmr8a.pfb><E:/Program Files/Miktex/fonts/type1/urw/times/utmri8a.pfb>
+Output written on paper.pdf (4 pages, 1812976 bytes).
 PDF statistics:
- 36 PDF objects out of 1000 (max. 8388607)
+ 39 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
