@@ -22,6 +22,7 @@ Wouter Jochems\\
 KU Leuven\\
 wouter.jochems@student.kuleuven.be}
 
+\pagenumbering{arabic}
 
 \begin{document}
 \fontsize{11pt}{13pt}\selectfont
@@ -63,7 +64,7 @@ Daarnaast is er al veel onderzoek gebeurd rond LEDs en hun mogelijk tot signaalo
 
 \section{Evaluatie}
 
-Het doel van ons onderzoek is nagaan of een display opgebouwd uit SmartLEDs een meerwaarde biedt ten opzichte van gewone displays. Hiervoor bekijken we de drie beperkingen die we vaststellen bij de klassieke displays: flexibiliteit, interactiviteit en modulatiteit. Daarnaast onderzoeken we welke bekomende beperkingen een SmartLED-display heeft.
+Het doel van ons onderzoek is nagaan of een display opgebouwd uit SmartLEDs een meerwaarde biedt ten opzichte van gewone displays. Hiervoor bekijken we de drie beperkingen die we vaststellen bij de klassieke displays: flexibiliteit, interactiviteit en modulariteit. Daarnaast onderzoeken we welke bijkomende beperkingen een SmartLED-display heeft.
 
 Met \textbf{flexibiliteit} bedoelen we dat het mogelijk moet zijn om de SmartLEDs te verplaatsen zonder dat hiervoor code moet worden aangepast. Dit betekent dat de communicatie met en door de SmartLEDs onafhankelijk moeten werken van hun positie in het display. 
 
@@ -81,8 +82,6 @@ Om onze hypothese te testen maken we gebruik van LEDs verbonden met Zigduino r2 
 \section{Methode}
 
 Voor het schrijven van de code gebruiken we de standaard Arduino IDE.
-Onderlinge communicatie
-
 
 
 \subsection{Onderlinge communicatie}
@@ -137,7 +136,7 @@ Wanneer we de gemeten waarde zonder lichtinput plotten krijgen we een duidelijk 
 \end{figure}
 
 Om de gemeten waarde van het omgevingslicht nauwkeuriger te maken besloten we om deze gelijk te stellen aan het gemiddelde van tien metingen met telkens 50ms (ongeveer de helft van een periode) tussen om het sinusoïdale verloop op te vangen. Hierbij tellen we een waarde op, die groter is dan de amplitude van de sinus golf, en bekomen zo onze threshold. 
-Voor ons onderzoek volstaat het om de threshold te bepalen wanneer wanneer de SmartLED wordt geactiveerd of een nieuw programma wordt.
+Voor ons onderzoek volstaat het om de threshold te bepalen wanneer de SmartLED wordt geactiveerd of een nieuw programma wordt uitgevoerd.
 
 \subsection{Eigenschappen display}
 
@@ -162,19 +161,11 @@ De eerste manier bestond uit een reactie van het display wanneer een signaal ver
 \caption{1:inactief, 2:vraagt om respons, 3:geen respons, \mbox{4: wel respons}}
 \label{fig:mole}
 \end{figure}
-
 Bij de tweede manier wordt er een bit-string verzonden naar het display. Deze manier hebben we getest met een programma waarbij een bit-string gelijk werd gesteld aan een kleur die de display LED moest aannemen of aan een programma dat afgespeeld moest worden.
-
-\subsection{Omgevingslicht}
-Om ervoor te zorgen dat de SmartLEDs een verschil zien tussen omgevingslicht en een signaal, moeten we een threshold instellen. Om ervoor te zorgen dat onze code niet afgesteld was op 1 plaats, maakten we deze dynamisch. Op bepaalde tijdstippen in ons programma wordt een meting genomen om de hoeveelheid omgevingslicht vast te stellen. Als threshold wordt dan een iets hogere waarde genomen zodat omgevingslicht niet en een signaal (feller licht) wel over de grens komt.
-
-
-
-We merkten op dat deze threshold niet hetzelfde bleef voor eenzelfde hoeveelheid omgevingslicht. Bij het visualiseren van de spanning was te zien dat de gedecteerde ruis sinusoïdaal verloopt (zie figuur \ref{fig:ruis}). Dit valt te verklaren door de RC-kringen in de gebruikte zigduino's. Om de gemeten waarde van het omgevingslicht nauwkeuriger te maken besloten we om deze gelijk te stellen aan het gemiddelde van een tiental metingen met telkens 50ms (ongeveer de helft van een periode) tussen om het sinusoïdale verloop op te vangen. Hierbij tellen we opnieuw een waarde op, vergelijkbaar met de amplitude van de sinus golf, en bekomen zo onze threshold. Dit proces wordt weer meerdere keren herhaald doorheen de uitvoering van het programma.
 
 
 \section{Conclusie}
-We concluderen dat SmartLED-displays geen alternatief zijn voor conventionele LED-displays maar dat ze toch over bepaalde eigenschappen beschikken die ze niet alleen bruikbaar maar ook bijzonder maken. Ze kunnen interactief gebruikt worden als simpele, vlakke displays zonder onderlinge communicatie maar ook zonder eventuele verbindingsproblemen. Daarnaast kunnen ze in andere vormen wel signalen doorgeven en dus meer als 1 geheel functioneren.
+Conventionele LED-displays komen vooral vlak voor en dit is helaas niet echt mogelijk met SmartLED-displays aangezien zo geen communicatie mogelijk is. Hieruit besluiten we dat SmartLED-displays geen alternatief zijn voor conventionele LED-displays. Ze bezitten echter wel bepaalde eigenschappen die ze niet alleen bruikbaar maar ook bijzonder maken. Ze kunnen interactief gebruikt worden als simpele, vlakke displays zonder onderlinge communicatie maar ook zonder eventuele verbindingsproblemen. Daarnaast kunnen ze in andere vormen wel signalen doorgeven en dus meer als 1 geheel functioneren.
 
 
 \section{Verder werk}
