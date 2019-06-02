@@ -1,5 +1,16 @@
 \begin{thebibliography}{}
 
+\bibitem[\protect\citeauthoryear{Ard}{}]{Arduino}
+analogread().
+\newblock
+  https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/.
+\newblock Geraadpleegd: 2019-05-08.
+
+\bibitem[\protect\citeauthoryear{osc}{}]{oscillator}
+Rc-oscillator.
+\newblock https://nl.wikipedia.org/wiki/RC-oscillator.
+\newblock Geraadpleegd: 2019-05-08.
+
 \bibitem[\protect\citeauthoryear{Schmid \bgroup \em et al.\egroup
   }{2013}]{VLCNetworks}
 S.~Schmid, S.~Mangold, G.~Corbellini, and T.R. Gross.
