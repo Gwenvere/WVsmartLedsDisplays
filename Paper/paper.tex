@@ -137,7 +137,7 @@ Door het grote verschil in waarde is het makkelijker om te registreren wanneer e
 \subsection{Threshold}
 
 Om ervoor te zorgen dat de SmartLEDs een verschil zien tussen omgevingslicht en een signaal moeten we een threshold, een waarde vanaf wanneer we een meeting als input beschouwen, instellen. Omdat we gebruik maken van infraroodlicht blijft de waarde van de threshold redelijk constant. We merken echter wel verschillen in de gemeten basiswaarde afhankelijk van het gebruikte Zigduino-bord en eventuele storingsbronnen. Hierdoor is het nodig om op regelmatige tijdstippen de waarde van de threshold bij te sturen. 
-Wanneer we de gemeten waarde zonder lichtinput plotten krijgen we een duidelijk sinusoïdale verloop zoals te zien op figuur 3. Dit valt te verklaren door de RC-kringen in de gebruikte zigduino’s die als oscillator werken. \cite{oscillator}  
+Wanneer we de gemeten waarde zonder lichtinput plotten krijgen we een duidelijk sinusoïdale verloop zoals te zien op figuur \ref{fig:ruis}. Dit valt te verklaren door de RC-kringen in de gebruikte zigduino’s die als oscillator werken. \cite{oscillator}  
 
 \begin{figure}[H]
 \centering
@@ -150,15 +150,19 @@ Om de gemeten waarde van het omgevingslicht nauwkeuriger te maken besloten we om
 Voor ons onderzoek volstaat het om de threshold te bepalen wanneer de SmartLED wordt geactiveerd of een nieuw programma wordt uitgevoerd.
 
 \section{Communicatie}
+\subsection{Face-to-face Communicatie}
+
+Wanneer we twee SmartLEDs naar elkaar richten, kunnen we aan de hand van de eerder beschreven technieken een bitstring verzenden. Dit kunnen we gebruiken om via een lichtpen, een SmartLED die voorzien is van besturingsknoppen, een signaal door te sturen naar de andere SmartLEDs. 
+
 
 \subsection{Zijwaartse Communicatie}
-Om de LEDs als \'e\'en display te laten werken, zoeken we een manier om een signaal door te geven tussen de LEDs. Hiervoor wilden we aanvankelijk gebruik maken van de aanwezige infrarood LED. We zijn er echter niet in geslaagd om een zijdelings signaal door te geven indien de LEDs beiden naar boven wijzen. Dit is te verklaren door de beperkte stralingshoek van de LED, zoals geïllustreerd in figuur 4.
+Om de LEDs als \'e\'en display te laten werken, zoeken we een manier om een signaal door te geven tussen de LEDs. Hiervoor wilden we aanvankelijk gebruik maken van de aanwezige infrarood LED. We zijn er echter niet in geslaagd om een zijdelings signaal door te geven indien de LEDs beiden naar boven wijzen. Dit is te verklaren door de beperkte stralingshoek van de LED, zoals ge\"illustreerd in figuur \ref{fig:plaatsing}.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=8cm]{LedNaastElkaar.png}
 \caption{Stralingshoek bij zijdelings gepositioneerde LEDs}
-\label{fig:ruis}
+\label{fig:plaatsing}
 \end{figure}
 
 Een mogelijke oplossing hiervoor zou het gebruiken van een diffuser kunnen zijn om zo een grotere stralingshoek te bekomen. Wij hebben dit in onze opstelling getest aan de hand van een pingpong bal. Dit bleek in ons geval echter niet voldoende om de zijwaartse communicatie te doen slagen. Door een krachtigere LED te gebruiken, d.w.z. een die meer lumen produceert, zou dit mogelijk toch een oplossing kunnen zijn. Dit hebben wij niet verder onderzocht. 
@@ -175,16 +179,15 @@ Deze keuze resulteert echter wel in een beperking voor eventuele toepassingen va
 
 Om de LEDs toch als 1 geheel te laten werken stellen wij een systeem voor dat gebruik maakt van een floodlight. Dit is een SmartLED die is uitgerust van meerdere infrarood LEDs zodat deze in staat is om over een groter oppervlak te schijnen. Dit maakt het mogelijk om de display-SmartLEDs te synchroniseren en gelijktijdig een bepaald programma te laten starten. Omdat de LEDs zonder onderlinge communicatie waarschijnlijk niet perfect synchroon zullen blijven, is het nodig hier rekening mee te houden bij de keuze van de toepassing. 
 
-\subsection{Face-to-face Communicatie}
 
-Met twee naar elkaar gerichte LEDs lukt het ons wel om een bit-string door te zenden. Deze opstelling bestaat uit een eerste LED die een bit-string uitzendt, een tweede die deze ontvangt en doorgeeft aan een microcontroller en vervolgens een derde die de ontvangen bit-string weer uitzendt in een andere richting. In minder conventionele LED-displays (met een vorm die het toelaat de LEDs naar een elkaar te richten of met bewegende onderdelen) is onderlinge communicatie dus wel mogelijk.
+
 
 \subsection{Meerdere LEDs}
-Bij aanvang van ons project hoopten we voor het display en het verzenden van informatie dezelfde LED te gebruiken. Dit is niet alleen compacter dan met meerdere LEDs maar het zorgt er ook voor dat we de SmartLED niet moeten uitbreiden met extra hardware. Helaas bracht dit extra moeilijkheden met zich mee, zoals informatie die verzonden moest worden over een LED die volgens het display geen licht mag uitzenden. Ook maakte dit onze code veel complexer.
+Bij aanvang van ons project hoopten we voor het display en het verzenden van informatie dezelfde LED te gebruiken. Dit is niet alleen compact, maar het zorgt er ook voor dat we de SmartLED niet moeten uitbreiden met extra hardware. We hebben echter besloten om een tweede LED, namelijk een infrarood LED, te gebruiken omdat dit de communicatie een stuk eenvoudiger laat verlopen  zoals beschreven bij de threshold. 
 
-Om deze redenen kozen we om met een tweede LED te werken. Ook besloten we om de communicatie via een infrarood LED te laten verlopen, zo vermijden we dat de communicatie-LEDs signalen zouden opvangen van de display-LEDs. Bovendien creëert dit meer mogelijkheden voor het display aangezien het volledige RGB spectrum kan gebruikt worden om afbeeldingen weer te geven. 
+Om visuele redenen hebben we ervoor gekozen om als display-LED een RGB LED te gebruiken. Dit laat ons toe om via \'e\'en enkele LED meer te vari\"eren in de informatie die we kunnen overbrengen naar de gebruiken. Zo zijn kleuren in staat om emotionele reacties op te wekken \cite{color}. Omdat we voor een SmartLED display vooral een toepassing zien in marketing en entertainment vinden we de hogere kost van een RGB LED verantwoord. Kleuren spelen een belangrijk instrument in marketing \cite{marketing}.
 
-\subsection{Externe lichtbron}
+\section{Interactie}
 Omdat een tweede LED ook een externe lichtbron is, valt uit het voorgaande al te besluiten dat een goed gericht licht in staat is om te interageren met een SmartLED-display. 
 
 Wij onderzochten twee manieren waarop interactie met het LED-display mogelijk was. Dit aan de hand van een lichtpen (een LED met een microcontroller achter) die op een bepaalde manier geprogrammeerd was.

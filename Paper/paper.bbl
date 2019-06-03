@@ -11,6 +11,11 @@ A.~Dix.
 \newblock Firefly.
 \newblock https://alandix.com/academic/projects/firefly/.
 
+\bibitem[\protect\citeauthoryear{Labrecque and Milne}{2011}]{marketing}
+L.~Labrecque and G.~Milne.
+\newblock Exciting red and competent blue: the importance of color in
+  marketing, 2011.
+
 \bibitem[\protect\citeauthoryear{osc}{}]{oscillator}
 Rc-oscillator.
 \newblock https://nl.wikipedia.org/wiki/RC-oscillator.
@@ -20,6 +25,10 @@ Rc-oscillator.
   }{2013}]{VLCNetworks}
 S.~Schmid, S.~Mangold, G.~Corbellini, and T.R. Gross.
 \newblock Led-to-led visible light communication networks, 2013.
+
+\bibitem[\protect\citeauthoryear{Valdez and Mehrabian}{1994}]{color}
+P.~Valdez and A.~Mehrabian.
+\newblock Effects of color on emotions, 1994.
 
 \bibitem[\protect\citeauthoryear{Vandecauter and Veys}{2018}]{smartLED}
 M.~Vandecauter and B.~Veys.

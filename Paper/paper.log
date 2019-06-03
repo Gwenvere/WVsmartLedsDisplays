@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.13)  3 JUN 2019 17:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.13)  3 JUN 2019 22:14
 entering extended mode
 **./paper.tex
 (paper.tex
@@ -125,11 +125,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'dutch'.
- (paper.aux
-
-LaTeX Warning: Label `fig:ruis' multiply defined.
-
-)
+ (paper.aux)
 \openout1 = `paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
@@ -145,7 +141,8 @@ LaTeX Font Info:    ... okay on input line 28.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
 LaTeX Font Info:    ... okay on input line 28.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 28.
- ("E:\Program Files\Miktex\tex\latex\psnfss\ot1ptm.fd"
+
+("E:\Program Files\Miktex\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Info: Redefining \celsius on input line 28.
@@ -657,83 +654,69 @@ Underfull \hbox (badness 1609) in paragraph at lines 149--151
 []\OT1/ptm/m/n/11 Om de ge-me-ten waarde van het om-ge-vings-licht
  []
 
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no ¯ in font ptmr7t!
+
+Underfull \hbox (badness 1412) in paragraph at lines 155--156
+\OT1/ptm/m/n/11 Wanneer we twee Smart-LEDs naar el-kaar rich-ten,
+ []
+
 <LedNaastElkaar.png, id=19, 749.04843pt x 525.46312pt>
 File: LedNaastElkaar.png Graphic file (type png)
 <use LedNaastElkaar.png>
-Package pdftex.def Info: LedNaastElkaar.png  used on input line 159.
+Package pdftex.def Info: LedNaastElkaar.png  used on input line 163.
 (pdftex.def)             Requested size: 227.62204pt x 159.6767pt.
 
-Underfull \hbox (badness 2261) in paragraph at lines 164--165
+Underfull \hbox (badness 2261) in paragraph at lines 168--169
 \OT1/ptm/m/n/11 van een dif-fu-ser kun-nen zijn om zo een gro-tere
  []
 
-
-Underfull \hbox (badness 2735) in paragraph at lines 176--177
+[4 <./ruis.png> <./LedNaastElkaar.png>]
+Underfull \hbox (badness 2735) in paragraph at lines 180--181
 \OT1/ptm/m/n/11 Om-dat de LEDs zon-der on-der-linge com-mu-ni-ca-tie
  []
 
-[4 <./ruis.png> <./LedNaastElkaar.png>]
-Underfull \hbox (badness 1515) in paragraph at lines 180--181
-\OT1/ptm/m/n/11 weer uit-zendt in een an-dere rich-ting. In min-der
- []
 
-
-Underfull \hbox (badness 1087) in paragraph at lines 180--181
-\OT1/ptm/m/n/11 be-we-gende on-der-de-len) is on-der-linge com-mu-ni-ca-tie
- []
-
-
-Underfull \hbox (badness 1107) in paragraph at lines 183--184
+Underfull \hbox (badness 1107) in paragraph at lines 186--187
 \OT1/ptm/m/n/11 Bij aan-vang van ons pro-ject hoop-ten we voor het
  []
 
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no « in font ptmr7t!
 
-Underfull \hbox (badness 1281) in paragraph at lines 185--186
-\OT1/ptm/m/n/11 van de display-LEDs. Bo-ven-dien creert dit meer
+Underfull \hbox (badness 1688) in paragraph at lines 195--196
+\OT1/ptm/m/n/11 hier-voor een soort "\OT1/ptm/m/it/11 Whack-a-mole\OT1/ptm/m/n/
+11 "spel waar-bij de
  []
 
 <moleSequence.png, id=25, 729.927pt x 242.8272pt>
 File: moleSequence.png Graphic file (type png)
 <use moleSequence.png>
-Package pdftex.def Info: moleSequence.png  used on input line 195.
+Package pdftex.def Info: moleSequence.png  used on input line 200.
 (pdftex.def)             Requested size: 227.62204pt x 75.72398pt.
 
-Underfull \hbox (badness 1688) in paragraph at lines 192--198
-\OT1/ptm/m/n/11 hier-voor een soort "\OT1/ptm/m/it/11 Whack-a-mole\OT1/ptm/m/n/
-11 "spel waar-bij de
- []
-
-
-Underfull \hbox (badness 3965) in paragraph at lines 199--200
+Underfull \hbox (badness 3965) in paragraph at lines 204--205
 []\OT1/ptm/m/n/11 Bij de tweede ma-nier wordt er een bit-string
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 203--204
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
 \OT1/ptm/m/n/11 Conventionele LED-displays ko-men vooral
  []
 
 
-Underfull \hbox (badness 6188) in paragraph at lines 203--204
+Underfull \hbox (badness 6188) in paragraph at lines 208--209
 \OT1/ptm/m/n/11 vlak voor en dit is he-laas niet echt mo-ge-lijk
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 203--204
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
 \OT1/ptm/m/n/11 met SmartLED-displays aan-ge-zien zo geen
  []
 
 
-Underfull \hbox (badness 2608) in paragraph at lines 203--204
+Underfull \hbox (badness 2608) in paragraph at lines 208--209
 \OT1/ptm/m/n/11 com-mu-ni-ca-tie mo-ge-lijk is. Hier-uit be-slui-ten we
  []
 
 
-Underfull \hbox (badness 3713) in paragraph at lines 203--204
+Underfull \hbox (badness 3713) in paragraph at lines 208--209
 \OT1/ptm/m/n/11 dat SmartLED-displays geen al-ter-na-tief zijn voor
  []
 
@@ -752,18 +735,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--13
 []\OT1/ptm/m/n/11 A. Dix.  Fire-fly.
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--18
+[]\OT1/ptm/m/n/11 L. La-brec-que and
+ []
+
 [5 <./moleSequence.png>]
-Overfull \hbox (39.6489pt too wide) in paragraph at lines 15--18
+Overfull \hbox (39.6489pt too wide) in paragraph at lines 20--23
 []\OT1/ptm/m/n/11 Rc-oscillator.  https://nl.wikipedia.org/wiki/RC-oscillator.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--23
+Underfull \hbox (badness 10000) in paragraph at lines 26--28
 []\OT1/ptm/m/n/11 S. Schmid, S. Man-gold,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 25--27
+Underfull \hbox (badness 10000) in paragraph at lines 30--32
+[]\OT1/ptm/m/n/11 P. Valdez and
+ []
+
+
+Underfull \hbox (badness 1888) in paragraph at lines 30--32
+\OT1/ptm/m/n/11 A. Mehrabian.  Ef-fects of co-lor on emo-ti-ons,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--36
 []\OT1/ptm/m/n/11 M. Van-de-cau-ter and
  []
 
@@ -774,22 +772,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--27
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 3277 strings out of 493305
- 45773 string characters out of 3140590
- 131777 words of memory out of 3000000
- 6760 multiletter control sequences out of 15000+200000
+ 3280 strings out of 493305
+ 45806 string characters out of 3140590
+ 131807 words of memory out of 3000000
+ 6763 multiletter control sequences out of 15000+200000
  26916 words of font info for 53 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,10n,25p,876b,247s stack positions out of 5000i,500n,10000p,200000b,50000s
 {E:/Program Files/Miktex/fonts/enc/dvips/base/8r.enc}<E:/Program Files/Miktex
 /fonts/type1/urw/times/utmb8a.pfb><E:/Program Files/Miktex/fonts/type1/urw/time
 s/utmr8a.pfb><E:/Program Files/Miktex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (6 pages, 3128052 bytes).
+Output written on paper.pdf (6 pages, 3128805 bytes).
 PDF statistics:
  44 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
