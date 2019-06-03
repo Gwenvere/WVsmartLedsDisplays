@@ -3,7 +3,7 @@
 \bibitem[\protect\citeauthoryear{Ard}{}]{Arduino}
 analogread().
 \newblock
-  https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/.
+  https://www.arduino.cc/reference/\\en/language/functions/analog-io/analogread/.
 \newblock Geraadpleegd: 2019-05-08.
 
 \bibitem[\protect\citeauthoryear{Dix}{}]{firefly}

@@ -49,11 +49,11 @@ LED-displays worden vaak gebruikt op evenementen en reclameborden. De huidige di
 \begin{enumerate}
 
 
-\item Een eerste punt is flexibiliteit. Er zijn reeds flexibele displays beschikbaar. Omdat elke led vanuit een centraal punt wordt aangestuurd is het nodig dat deze centrale controller kennis heeft van de positie van de LEDs. Dit zorgt ervoor dat de huidige flexibele displays beperkt zijn in hun bewegingsmogelijkheden. De individuele LEDs zijn vaak aangesloten op een raster of slinger om de relatieve positie van de LEDs ten opzichte van elkaar te behouden. Door de centrale controller weg te laten denken wij de nood aan het behouden van de relatieve posities te elimineren. Dit leidt tot meer mogelijkheden voor de dynamische flexibiliteit van een SmartLED-display.
+\item Een eerste punt is \textbf{flexibiliteit}. Er zijn reeds flexibele displays beschikbaar. Omdat elke led vanuit een centraal punt wordt aangestuurd is het nodig dat deze centrale controller kennis heeft van de positie van de LEDs. Dit zorgt ervoor dat de huidige flexibele displays beperkt zijn in hun bewegingsmogelijkheden. De individuele LEDs zijn vaak aangesloten op een raster of slinger om de relatieve positie van de LEDs ten opzichte van elkaar te behouden. Door de centrale controller weg te laten denken wij de nood aan het behouden van de relatieve posities te elimineren. Dit leidt tot meer mogelijkheden voor de dynamische flexibiliteit van een SmartLED-display.
 
-\item Een tweede punt is interactiviteit. Ook hier zijn er reeds interactieve displays op de markt. Deze zijn echter vaak rigide. Door elke SmartLED van een eigen micro-controller te voorzien zorgen we ervoor dat deze zelf signalen van buitenaf kan verwerken. De individuele LEDs zijn bijgevolg onafhankelijk van andere besturingselementen toch in staat om in interactie te treden met de buitenwereld. Voor deze interactie maken we gebruikt van een “lichtpen”, dit is een SmartLED die een gebruiker op het display kan richten om zo signalen over te brengen aan de hand van infrarood licht.
+\item Een tweede punt is \textbf{interactiviteit}. Ook hier zijn er reeds interactieve displays op de markt. Deze zijn echter vaak rigide. Door elke SmartLED van een eigen micro-controller te voorzien zorgen we ervoor dat deze zelf signalen van buitenaf kan verwerken. De individuele LEDs zijn bijgevolg onafhankelijk van andere besturingselementen toch in staat om in interactie te treden met de buitenwereld. Voor deze interactie maken we gebruikt van een “lichtpen”, dit is een SmartLED die een gebruiker op het display kan richten om zo signalen over te brengen aan de hand van infrarood licht.
 
-\item Als derde en laatste punt bekijken we modulariteit. Zoals eerder vermeld zijn is de flexibiliteit van de huidige displays beperkt. Doordat de LEDs vanuit één centraal punt worden aangestuurd zullen problemen bij de centrale controller een impact hebben op het hele display. Ook is het vaak moeilijk om een individuele LED of groepen van LEDs te vervangen wanneer deze niet meer werken. Door elke SmartLED als individuele entiteit te laten functioneren kunnen problemen zich niet voortplanten over het display. Omdat de SmartLEDs enkel afhankelijk zijn van zichzelf is het ook makkelijk om een enkele led te vervangen.
+\item Als derde en laatste punt bekijken we \textbf{modulariteit}. Zoals eerder vermeld is de flexibiliteit van de huidige displays beperkt. Doordat de LEDs vanuit één centraal punt worden aangestuurd zullen problemen bij de centrale controller een impact hebben op het hele display. Ook is het vaak moeilijk om een individuele LED of groepen van LEDs te vervangen wanneer deze niet meer werken. Door elke SmartLED als individuele entiteit te laten functioneren kunnen problemen zich niet voortplanten over het display. Omdat de SmartLEDs enkel afhankelijk zijn van zichzelf is het ook makkelijk om een enkele led te vervangen.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -87,14 +87,19 @@ Om onze hypothese te testen maken we gebruik van LEDs verbonden met Zigduino r2 
 
 \section{Methode}
 
-Voor het schrijven van de code\footnote{Alle code is beschikbaar op \\ https://gitlab.com/smartled-displays/smartled-displays} gebruiken we de standaard Arduino IDE.
+Voor het schrijven van de code\footnote{Alle code is beschikbaar op \\ https://gitlab.com/smartled-displays/smartled-displays} gebruiken we de standaard Arduino IDE, aangepast om te werken met Zigduino's. De experimenten zijn gedaan met Zigduino's.
 
+We zoeken eerst een methode om signalen door te geven over verschillende SmartLEDs. Hiervoor baseren we ons op het werk van \cite{smartLED}. Daarna bekijken we de mogelijkheden voor communicatie voor de voor ons 2 relevante aspecten: zijwaartse communicatie voor de LEDs in het display; en face-to-face voor interactie met een gebruiker.
+ 
+Ook bekijken we 2 manieren voor interactie met het display. De eerste manier werkt op een heel simpele manier en registreert slechts 1 soort input; er wordt een lichtpen op het display gericht. De tweede manier maakt gebruik van de signaaloverdracht zoals die beschreven wordt; er wordt een bitstring overgedragen. 
 
-\subsection{Onderlinge communicatie}
+\section{Signaaloverdracht}
 
 Voor de communicatie tussen SmartLEDs zijn we vertrokken vanuit VLC, visual light communication. Zoals \cite{VLCNetworks} aantoont is het mogelijk om LEDs te gebruiken om zowel licht uit te zenden als te ontvangen. Dit kan gebruikt worden voor communicatie tussen LEDs onderling zonder dat dit merkbaar is voor een gebruiker; de LED lijkt altijd aan, zo blijkt uit de paper. De communicatie verloopt grotendeels zoals beschreven in \cite{smartLED}. Met als uitzondering de schakeling van de LED. 
 
-\subsubsection{Reverse Bias}
+De signaaloverdracht gebeurt aan de hand van infrarood licht. Een zender SmartLED zend een bitstring uit via on-off keying. Hierbij wordt de binaire “1” voorgesteld door de LED aan te zetten en de “0” door de LED uit te zetten. Afhankelijk van de ontvangen bitstring zal de ontvanger de bijhorende reactie ondernemen.
+
+\subsection{Reverse Bias}
 We hebben gemerkt dat het verschil tussen de gemeten waarde wanneer we wel of niet op de LED schijnen veel groter is wanneer we de infrarood LED in \textbf{reverse bias} schakelden, in tegenstelling tot de forward bias zoals in \cite{smartLED} gebruikt wordt. Dit vermoeden wordt bevestigd door de resultaten in tabel 1. Deze geeft telkens de waarden weer die door de Zigduino over de LED worden gemeten. Zoals beschreven in de Arduino Referentie \cite{Arduino} bevat het bord een analog to digital converter. Deze mapt het input voltage op integer waarden tussen 0 en 1023. Bij de Zigduinos gebeurt dit op dezelfde manier. De tabel geeft een gemiddelde van 30 metingen van deze integer waarden zoals gemeten met de lichtbron op verschillende afstanden, alsook zonder de lichtbron. 
 
 Om het verschil tussen de forward bias en reverse bias te bevestigen bekijken we de waarden voor een afstand van 8 cm. Dit lijkt ons een representatieve afstand voor de communicatie met de lichtpen. We bekijken het absolute verschil tussen de waardes met en de waardes zonder lichtbron. 
@@ -125,14 +130,14 @@ Door het grote verschil in waarde is het makkelijker om te registreren wanneer e
   \caption{Gemeten waarden over LED} 
 \end{table}
 
-\subsubsection{Synchronisatie}
+\subsection{Synchronisatie}
 
  Voor de \textbf{synchronisatie} maken we gebruik van oversampling, zoals beschreven in de paper. Dit houdt in dat we voor elke bit meerdere lezingen uitvoeren, namelijk 3. Door de metingen met elkaar te vergelijken kunnen onverwachte veranderingen worden opgespoord. Hieruit kan worden afgeleid of de lezer voor of achterloopt op de zender. Om ervoor te zorgen dat de juiste bitstring gelezen wordt, zal de lezer de fout corrigeren door de laatste meting van de vorige bit over te brengen naar de volgende. Voor de volgende bit worden dan maar 2 bijkomende metingen gedaan.
  
-\subsubsection{Threshold}
+\subsection{Threshold}
 
 Om ervoor te zorgen dat de SmartLEDs een verschil zien tussen omgevingslicht en een signaal moeten we een threshold, een waarde vanaf wanneer we een meeting als input beschouwen, instellen. Omdat we gebruik maken van infraroodlicht blijft de waarde van de threshold redelijk constant. We merken echter wel verschillen in de gemeten basiswaarde afhankelijk van het gebruikte Zigduino-bord en eventuele storingsbronnen. Hierdoor is het nodig om op regelmatige tijdstippen de waarde van de threshold bij te sturen. 
-Wanneer we de gemeten waarde zonder lichtinput plotten krijgen we een duidelijk sinusoïdale verloop zoals te zien op figuur 2. Dit valt te verklaren door de RC-kringen in de gebruikte zigduino’s die als oscillator werken. \cite{oscillator}  
+Wanneer we de gemeten waarde zonder lichtinput plotten krijgen we een duidelijk sinusoïdale verloop zoals te zien op figuur 3. Dit valt te verklaren door de RC-kringen in de gebruikte zigduino’s die als oscillator werken. \cite{oscillator}  
 
 \begin{figure}[H]
 \centering
@@ -141,12 +146,13 @@ Wanneer we de gemeten waarde zonder lichtinput plotten krijgen we een duidelijk 
 \label{fig:ruis}
 \end{figure}
 
-Om de gemeten waarde van het omgevingslicht nauwkeuriger te maken besloten we om deze gelijk te stellen aan het gemiddelde van tien metingen met telkens 50ms (ongeveer de helft van een periode) tussen om het sinusoïdale verloop op te vangen. Hierbij tellen we een waarde op, die groter is dan de amplitude van de sinus golf, en bekomen zo onze threshold. 
+Om de gemeten waarde van het omgevingslicht nauwkeuriger te maken besloten we om deze gelijk te stellen aan het gemiddelde van tien metingen met telkens 50ms (ongeveer de helft van een periode) tussen om het sinuso\"idale verloop op te vangen. Hierbij tellen we een waarde op, die groter is dan de amplitude van de sinus golf, en bekomen zo onze threshold. 
 Voor ons onderzoek volstaat het om de threshold te bepalen wanneer de SmartLED wordt geactiveerd of een nieuw programma wordt uitgevoerd.
 
-\subsection{Eigenschappen display}
+\section{Communicatie}
 
-Om de LEDs als één display te laten werken, zoeken we een manier om een signaal door te geven tussen de LEDs. Hiervoor wilden we aanvankelijk gebruik maken van de aanwezige infrarood LED. We zijn er echter niet in geslaagd om een zijdelings signaal door te geven indien de LEDs beiden naar boven wijzen. Dit is te verklaren door de beperkte stralingshoek van de LED, zoals geïllustreerd in figuur 3.
+\subsection{Zijwaartse Communicatie}
+Om de LEDs als \'e\'en display te laten werken, zoeken we een manier om een signaal door te geven tussen de LEDs. Hiervoor wilden we aanvankelijk gebruik maken van de aanwezige infrarood LED. We zijn er echter niet in geslaagd om een zijdelings signaal door te geven indien de LEDs beiden naar boven wijzen. Dit is te verklaren door de beperkte stralingshoek van de LED, zoals geïllustreerd in figuur 4.
 
 \begin{figure}[H]
 \centering
@@ -157,16 +163,19 @@ Om de LEDs als één display te laten werken, zoeken we een manier om een signaa
 
 Een mogelijke oplossing hiervoor zou het gebruiken van een diffuser kunnen zijn om zo een grotere stralingshoek te bekomen. Wij hebben dit in onze opstelling getest aan de hand van een pingpong bal. Dit bleek in ons geval echter niet voldoende om de zijwaartse communicatie te doen slagen. Door een krachtigere LED te gebruiken, d.w.z. een die meer lumen produceert, zou dit mogelijk toch een oplossing kunnen zijn. Dit hebben wij niet verder onderzocht. 
 
-Een andere mogelijkheid zou zijn om dit op te lossen door extra infrarood LEDs te monteren die naar de buitenkant gericht zijn, in plaats van naar boven. Wij hebben er echter voor gekozen dit niet te doen omdat we de smartLEDs zo eenvoudig mogelijk wilden houden. 
+Een andere mogelijkheid zou zijn om dit op te lossen door extra infrarood LEDs te monteren die naar de buitenkant gericht zijn, in plaats van naar boven. Wij hebben er echter voor gekozen dit niet te doen omdat we de SmartLEDs zo eenvoudig mogelijk wilden houden. 
 
 Deze keuze resulteert echter wel in een beperking voor eventuele toepassingen van het display:
 \medskip
 \begin{displayquote}
 
- \textit{Er is geen zijwaartse communicatie tussen de individuele smartLEDs.}
+ \textit{Er is geen zijwaartse communicatie tussen de individuele SmartLEDs.}
 \end{displayquote}
 \medskip
 
+Om de LEDs toch als 1 geheel te laten werken stellen wij een systeem voor dat gebruik maakt van een floodlight. Dit is een SmartLED die is uitgerust van meerdere infrarood LEDs zodat deze in staat is om over een groter oppervlak te schijnen. Dit maakt het mogelijk om de display-SmartLEDs te synchroniseren en gelijktijdig een bepaald programma te laten starten. Omdat de LEDs zonder onderlinge communicatie waarschijnlijk niet perfect synchroon zullen blijven, is het nodig hier rekening mee te houden bij de keuze van de toepassing. 
+
+\subsection{Face-to-face Communicatie}
 
 Met twee naar elkaar gerichte LEDs lukt het ons wel om een bit-string door te zenden. Deze opstelling bestaat uit een eerste LED die een bit-string uitzendt, een tweede die deze ontvangt en doorgeeft aan een microcontroller en vervolgens een derde die de ontvangen bit-string weer uitzendt in een andere richting. In minder conventionele LED-displays (met een vorm die het toelaat de LEDs naar een elkaar te richten of met bewegende onderdelen) is onderlinge communicatie dus wel mogelijk.
 
@@ -181,7 +190,7 @@ Omdat een tweede LED ook een externe lichtbron is, valt uit het voorgaande al te
 Wij onderzochten twee manieren waarop interactie met het LED-display mogelijk was. Dit aan de hand van een lichtpen (een LED met een microcontroller achter) die op een bepaalde manier geprogrammeerd was.
 
 De eerste manier bestond uit een reactie van het display wanneer een signaal verzonden werd, versus wanneer er geen verzonden werd. We programmeerden hiervoor een soort "\textit{Whack-a-mole}" spel waarbij de speler een bepaalde tijd heeft om te reageren op een licht verandering door de lichtpen hierover te laten schijnen. Zowel bij succes als bij mislukking geeft het display feedback door weer van licht te veranderen (zie figuur \ref{fig:mole}).
-\begin{figure}[b!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=8cm]{moleSequence.png}
 \caption{1:inactief, 2:vraagt om respons, 3:geen respons, \mbox{4: wel respons}}
