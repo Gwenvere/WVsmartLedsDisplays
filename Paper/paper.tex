@@ -9,6 +9,7 @@
 \usepackage{cite}
 \usepackage{named}
 \usepackage{url}
+\usepackage{csquotes}
 \hyphenpenalty = 10000
 \exhyphenpenalty = 10000
 
@@ -55,7 +56,7 @@ LED-displays worden vaak gebruikt op evenementen en reclameborden. De huidige di
 \item Als derde en laatste punt bekijken we modulariteit. Zoals eerder vermeld zijn is de flexibiliteit van de huidige displays beperkt. Doordat de LEDs vanuit één centraal punt worden aangestuurd zullen problemen bij de centrale controller een impact hebben op het hele display. Ook is het vaak moeilijk om een individuele LED of groepen van LEDs te vervangen wanneer deze niet meer werken. Door elke SmartLED als individuele entiteit te laten functioneren kunnen problemen zich niet voortplanten over het display. Omdat de SmartLEDs enkel afhankelijk zijn van zichzelf is het ook makkelijk om een enkele led te vervangen.
 \end{enumerate}
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[width=8cm]{broken.png}
 \caption{Een LED-display met verbindingsproblemen}
@@ -133,7 +134,7 @@ Door het grote verschil in waarde is het makkelijker om te registreren wanneer e
 Om ervoor te zorgen dat de SmartLEDs een verschil zien tussen omgevingslicht en een signaal moeten we een threshold, een waarde vanaf wanneer we een meeting als input beschouwen, instellen. Omdat we gebruik maken van infraroodlicht blijft de waarde van de threshold redelijk constant. We merken echter wel verschillen in de gemeten basiswaarde afhankelijk van het gebruikte Zigduino-bord en eventuele storingsbronnen. Hierdoor is het nodig om op regelmatige tijdstippen de waarde van de threshold bij te sturen. 
 Wanneer we de gemeten waarde zonder lichtinput plotten krijgen we een duidelijk sinusoïdale verloop zoals te zien op figuur 2. Dit valt te verklaren door de RC-kringen in de gebruikte zigduino’s die als oscillator werken. \cite{oscillator}  
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[width=8cm]{ruis.png}
 \caption{De gedetecteerde ruis, gemeten spanning in functie van de tijd}
@@ -145,7 +146,27 @@ Voor ons onderzoek volstaat het om de threshold te bepalen wanneer de SmartLED w
 
 \subsection{Eigenschappen display}
 
-Om een vlak display te bekomen, moeten de LEDs uiteraard zijdelings staan. Dit zorgde helaas voor problemen, aangezien elke LED een specifieke invalshoek heeft. Wij hadden echter geen LEDs met een hoek van 180\degree ter beschikking. Als oplossing probeerden we een diffuser te gebruiken maar hierdoor verzwakte het licht van onze LEDs waardoor er geen signaal kon worden verzonden. Mogelijk zou dit geen probleem zijn bij sterkere LEDs maar deze zouden problemen kunnen geven omdat ze teveel energie vragen. 
+Om de LEDs als één display te laten werken, zoeken we een manier om een signaal door te geven tussen de LEDs. Hiervoor wilden we aanvankelijk gebruik maken van de aanwezige infrarood LED. We zijn er echter niet in geslaagd om een zijdelings signaal door te geven indien de LEDs beiden naar boven wijzen. Dit is te verklaren door de beperkte stralingshoek van de LED, zoals geïllustreerd in figuur 3.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{LedNaastElkaar.png}
+\caption{Stralingshoek bij zijdelings gepositioneerde LEDs}
+\label{fig:ruis}
+\end{figure}
+
+Een mogelijke oplossing hiervoor zou het gebruiken van een diffuser kunnen zijn om zo een grotere stralingshoek te bekomen. Wij hebben dit in onze opstelling getest aan de hand van een pingpong bal. Dit bleek in ons geval echter niet voldoende om de zijwaartse communicatie te doen slagen. Door een krachtigere LED te gebruiken, d.w.z. een die meer lumen produceert, zou dit mogelijk toch een oplossing kunnen zijn. Dit hebben wij niet verder onderzocht. 
+
+Een andere mogelijkheid zou zijn om dit op te lossen door extra infrarood LEDs te monteren die naar de buitenkant gericht zijn, in plaats van naar boven. Wij hebben er echter voor gekozen dit niet te doen omdat we de smartLEDs zo eenvoudig mogelijk wilden houden. 
+
+Deze keuze resulteert echter wel in een beperking voor eventuele toepassingen van het display:
+\medskip
+\begin{displayquote}
+
+ \textit{Er is geen zijwaartse communicatie tussen de individuele smartLEDs.}
+\end{displayquote}
+\medskip
+
 
 Met twee naar elkaar gerichte LEDs lukt het ons wel om een bit-string door te zenden. Deze opstelling bestaat uit een eerste LED die een bit-string uitzendt, een tweede die deze ontvangt en doorgeeft aan een microcontroller en vervolgens een derde die de ontvangen bit-string weer uitzendt in een andere richting. In minder conventionele LED-displays (met een vorm die het toelaat de LEDs naar een elkaar te richten of met bewegende onderdelen) is onderlinge communicatie dus wel mogelijk.
 

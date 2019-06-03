@@ -6,6 +6,11 @@ analogread().
   https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/.
 \newblock Geraadpleegd: 2019-05-08.
 
+\bibitem[\protect\citeauthoryear{Dix}{}]{firefly}
+A.~Dix.
+\newblock Firefly.
+\newblock https://alandix.com/academic/projects/firefly/.
+
 \bibitem[\protect\citeauthoryear{osc}{}]{oscillator}
 Rc-oscillator.
 \newblock https://nl.wikipedia.org/wiki/RC-oscillator.
