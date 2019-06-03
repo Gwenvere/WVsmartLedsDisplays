@@ -31,6 +31,8 @@ wouter.jochems@student.kuleuven.be}
 
 \begin{abstract}
 Deze paper onderzoekt een mogelijke toepassing van SmartLEDs, LEDs aangestuurd door een microcontroller\cite{smartLED}. Specifiek bestuderen we hun mogelijkheden op het gebied van LED-displays. LED-displays kennen veel toepassingen in verschillende gebieden, zoals marketing en entertainment. De fundamentele opbouw is vaak die van een centrale aansturing die het hele display bestuurt. Deze opbouw legt echter enkele beperkingen op en kan voor bepaalde problemen zorgen. We onderzoeken of een LED-display opgebouwd uit SmartLEDs, waarbij er geen centrale aansturing is, een meerwaarde biedt ten opzichte van de beperkingen die we bij de klassieke displays vaststellen. We concluderen dat SmartLED-displays niet altijd een goede vervanging zijn voor conventionele LED-displays, maar wel extra mogelijkheden bieden voor meer experimentele LED-displays.
+
+//TODO criteria evalueren
 \end{abstract}
 
 {\bf Keywords:} SmartLED, VLC, LED, LED Display, Arduino, Microcontroller,
@@ -84,20 +86,34 @@ Voor \textbf{modulariteit} is het belangrijk dat er SmartLEDs kunnen worden toeg
 De uiteindelijke implementatie zou gebruik maken van SmartLEDs. Om praktische redenen waren wij niet in staat deze te gebruiken tijdens ons onderzoek. 
 Om onze hypothese te testen maken we gebruik van LEDs verbonden met Zigduino r2 microcontrollers. De Zigduino’s bevatten een infrarood led en een RGB led. We kiezen ervoor om een infrarood led toe te voegen omdat dit de communicatie een stuk minder complex maakt. Indien we gebruik zouden maken van zichtbaar licht, zoals bij VLC, is het nodig om rekening te houden met het omgevingslicht. Dit veranderd voortdurend en deze verandering moet in rekening gebracht worden om onderscheidt te maken van een doelbewust signaal en het aanwezige omgevingslicht. De veranderingen in het aanwezige infrarood licht zijn veel minder uitgesproken. Dit laat ons toe om de threshold, de waarde vanaf wanneer we een signaal registreren, redelijk constant te houden. Om deze reden stappen we af van de pure VLC en kiezen we ervoor een extra infrarood LED toe te voegen.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Opstelling.png}
+\caption{De opstelling voor de display SmartLEDs}
+\label{fig:opstelling}
+\end{figure}
+
 
 \section{Methode}
 
-Voor het schrijven van de code\footnote{Alle code is beschikbaar op \\ https://gitlab.com/smartled-displays/smartled-displays} gebruiken we de standaard Arduino IDE, aangepast om te werken met Zigduino's. De experimenten zijn gedaan met Zigduino's.
+Voor het schrijven van de code\footnote{Alle code is beschikbaar op \\ https://gitlab.com/smartled-displays/smartled-displays} gebruiken we de standaard Arduino IDE, aangepast om te werken met Zigduino's. De experimenten zijn gedaan met Zigduino r2 microcontrollers.
 
 We zoeken eerst een methode om signalen door te geven over verschillende SmartLEDs. Hiervoor baseren we ons op het werk van \cite{smartLED}. Daarna bekijken we de mogelijkheden voor communicatie voor de voor ons 2 relevante aspecten: zijwaartse communicatie voor de LEDs in het display; en face-to-face voor interactie met een gebruiker.
  
 Ook bekijken we 2 manieren voor interactie met het display. De eerste manier werkt op een heel simpele manier en registreert slechts 1 soort input; er wordt een lichtpen op het display gericht. De tweede manier maakt gebruik van de signaaloverdracht zoals die beschreven wordt; er wordt een bitstring overgedragen. 
 
-\section{Signaaloverdracht}
+\section{Signaaloverdracht}\label{signaaloverdracht}
 
 Voor de communicatie tussen SmartLEDs zijn we vertrokken vanuit VLC, visual light communication. Zoals \cite{VLCNetworks} aantoont is het mogelijk om LEDs te gebruiken om zowel licht uit te zenden als te ontvangen. Dit kan gebruikt worden voor communicatie tussen LEDs onderling zonder dat dit merkbaar is voor een gebruiker; de LED lijkt altijd aan, zo blijkt uit de paper. De communicatie verloopt grotendeels zoals beschreven in \cite{smartLED}. Met als uitzondering de schakeling van de LED. 
 
-De signaaloverdracht gebeurt aan de hand van infrarood licht. Een zender SmartLED zend een bitstring uit via on-off keying. Hierbij wordt de binaire “1” voorgesteld door de LED aan te zetten en de “0” door de LED uit te zetten. Afhankelijk van de ontvangen bitstring zal de ontvanger de bijhorende reactie ondernemen.
+De signaaloverdracht gebeurt aan de hand van infrarood licht. Een zender SmartLED zend een bitstring uit via on-off keying. Hierbij wordt de binaire “1” voorgesteld door de LED aan te zetten en de “0” door de LED uit te zetten. Afhankelijk van de ontvangen bitstring zal de ontvanger de bijhorende reactie ondernemen. (zie figuur \ref{fig:onfoff}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{OnOff.png}
+\caption{on-off keying}
+\label{fig:onfoff}
+\end{figure}
 
 \subsection{Reverse Bias}
 We hebben gemerkt dat het verschil tussen de gemeten waarde wanneer we wel of niet op de LED schijnen veel groter is wanneer we de infrarood LED in \textbf{reverse bias} schakelden, in tegenstelling tot de forward bias zoals in \cite{smartLED} gebruikt wordt. Dit vermoeden wordt bevestigd door de resultaten in tabel 1. Deze geeft telkens de waarden weer die door de Zigduino over de LED worden gemeten. Zoals beschreven in de Arduino Referentie \cite{Arduino} bevat het bord een analog to digital converter. Deze mapt het input voltage op integer waarden tussen 0 en 1023. Bij de Zigduinos gebeurt dit op dezelfde manier. De tabel geeft een gemiddelde van 30 metingen van deze integer waarden zoals gemeten met de lichtbron op verschillende afstanden, alsook zonder de lichtbron. 
@@ -130,7 +146,7 @@ Door het grote verschil in waarde is het makkelijker om te registreren wanneer e
   \caption{Gemeten waarden over LED} 
 \end{table}
 
-\subsection{Synchronisatie}
+\subsection{Synchronisatie}\label{synch}
 
  Voor de \textbf{synchronisatie} maken we gebruik van oversampling, zoals beschreven in de paper. Dit houdt in dat we voor elke bit meerdere lezingen uitvoeren, namelijk 3. Door de metingen met elkaar te vergelijken kunnen onverwachte veranderingen worden opgespoord. Hieruit kan worden afgeleid of de lezer voor of achterloopt op de zender. Om ervoor te zorgen dat de juiste bitstring gelezen wordt, zal de lezer de fout corrigeren door de laatste meting van de vorige bit over te brengen naar de volgende. Voor de volgende bit worden dan maar 2 bijkomende metingen gedaan.
  
@@ -149,11 +165,17 @@ Wanneer we de gemeten waarde zonder lichtinput plotten krijgen we een duidelijk 
 Om de gemeten waarde van het omgevingslicht nauwkeuriger te maken besloten we om deze gelijk te stellen aan het gemiddelde van tien metingen met telkens 50ms (ongeveer de helft van een periode) tussen om het sinuso\"idale verloop op te vangen. Hierbij tellen we een waarde op, die groter is dan de amplitude van de sinus golf, en bekomen zo onze threshold. 
 Voor ons onderzoek volstaat het om de threshold te bepalen wanneer de SmartLED wordt geactiveerd of een nieuw programma wordt uitgevoerd.
 
-\section{Communicatie}
+\section{Communicatie}\label{communicatie}
 \subsection{Face-to-face Communicatie}
 
-Wanneer we twee SmartLEDs naar elkaar richten, kunnen we aan de hand van de eerder beschreven technieken een bitstring verzenden. Dit kunnen we gebruiken om via een lichtpen, een SmartLED die voorzien is van besturingsknoppen, een signaal door te sturen naar de andere SmartLEDs. 
+Wanneer we twee SmartLEDs naar elkaar richten (zoals in figuur \ref{fig:plaatsingFace}), kunnen we aan de hand van de eerder beschreven technieken een bitstring verzenden. Dit kunnen we gebruiken om via een lichtpen, een SmartLED die voorzien is van besturingsknoppen, een signaal door te sturen naar de andere SmartLEDs. 
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=7cm]{LedTegenoverElkaar.png}
+\caption{Stralingshoek bij Face-to-Face gepositioneerde LEDs}
+\label{fig:plaatsingFace}
+\end{figure}
 
 \subsection{Zijwaartse Communicatie}
 Om de LEDs als \'e\'en display te laten werken, zoeken we een manier om een signaal door te geven tussen de LEDs. Hiervoor wilden we aanvankelijk gebruik maken van de aanwezige infrarood LED. We zijn er echter niet in geslaagd om een zijdelings signaal door te geven indien de LEDs beiden naar boven wijzen. Dit is te verklaren door de beperkte stralingshoek van de LED, zoals ge\"illustreerd in figuur \ref{fig:plaatsing}.
@@ -188,23 +210,37 @@ Bij aanvang van ons project hoopten we voor het display en het verzenden van inf
 Om visuele redenen hebben we ervoor gekozen om als display-LED een RGB LED te gebruiken. Dit laat ons toe om via \'e\'en enkele LED meer te vari\"eren in de informatie die we kunnen overbrengen naar de gebruiken. Zo zijn kleuren in staat om emotionele reacties op te wekken \cite{color}. Omdat we voor een SmartLED display vooral een toepassing zien in marketing en entertainment vinden we de hogere kost van een RGB LED verantwoord. Kleuren spelen een belangrijk instrument in marketing \cite{marketing}.
 
 \section{Interactie}
-Omdat een tweede LED ook een externe lichtbron is, valt uit het voorgaande al te besluiten dat een goed gericht licht in staat is om te interageren met een SmartLED-display. 
+Zoals eerder vermeld maken we voor de interactie met het display gebruik van een lichtpen. Deze interactie kan op twee manieren verlopen. De eerste manier maakt gebruik van een heel simpele aanpak. Hierbij kijkt het display enkel naar de aan- of afwezigheid van een signaal. Dit noemen wij de "Na\"ive Methode". Voor de tweede manier maken we gebruik van de communicatiemethode zoals eerder beschreven (in sectie \ref{communicatie}). Deze methode noemen wij de "Bitstring Methode".
 
-Wij onderzochten twee manieren waarop interactie met het LED-display mogelijk was. Dit aan de hand van een lichtpen (een LED met een microcontroller achter) die op een bepaalde manier geprogrammeerd was.
+\subsection{Na\"ive Methode}
+
+Voor de na\"ive methode is er geen nood aan de synchronisatie zoals beschreven in \ref{synch}. De display-SmartLEDs registreren elke waarde die de threshold overschrijdt al input. Deze vorm van communicatie stelt ons al in staat enkele simpele toepassingen te implementeren.
+
+//TODO beschrijven simpele brush applicatie en mole game
 
 De eerste manier bestond uit een reactie van het display wanneer een signaal verzonden werd, versus wanneer er geen verzonden werd. We programmeerden hiervoor een soort "\textit{Whack-a-mole}" spel waarbij de speler een bepaalde tijd heeft om te reageren op een licht verandering door de lichtpen hierover te laten schijnen. Zowel bij succes als bij mislukking geeft het display feedback door weer van licht te veranderen (zie figuur \ref{fig:mole}).
 
 \begin{figure}[H]
-
 \centering
 \includegraphics[width=8cm]{moleSequence.png}
 \caption{1:inactief, 2:vraagt om respons, 3:geen respons, \mbox{4: wel respons}}
 \label{fig:mole}
 \end{figure}
+
+\subsection{Bitstring Methode}
+
+//TODO volledige uitwerking hoe dit werkt (codes die corresponderen met knoppen)
+//TODO beschrijving brush applicatie
+//TODO beschrijving program switching
+
+
+
 Bij de tweede manier wordt er een bit-string verzonden naar het display. Deze manier hebben we getest met een programma waarbij een bit-string gelijk werd gesteld aan een kleur die de display LED moest aannemen of aan een programma dat afgespeeld moest worden.
 
 
 \section{Conclusie}
+//TODO criteria uit evaluatie bespreken
+
 Conventionele LED-displays komen vooral vlak voor en dit is helaas niet echt mogelijk met SmartLED-displays aangezien zo geen communicatie mogelijk is. Hieruit besluiten we dat SmartLED-displays geen alternatief zijn voor conventionele LED-displays. Ze bezitten echter wel bepaalde eigenschappen die ze niet alleen bruikbaar maar ook bijzonder maken. Ze kunnen interactief gebruikt worden als simpele, vlakke displays zonder onderlinge communicatie maar ook zonder eventuele verbindingsproblemen. Daarnaast kunnen ze in andere vormen wel signalen doorgeven en dus meer als 1 geheel functioneren.
 
 
