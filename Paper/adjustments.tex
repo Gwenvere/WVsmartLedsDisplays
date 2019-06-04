@@ -1,7 +1,7 @@
 %DIF 1a1
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL old.tex     Tue Jun  4 20:11:05 2019
-%DIF ADD paper.tex   Tue Jun  4 18:13:46 2019
+%DIF ADD paper.tex   Tue Jun  4 21:12:46 2019
  %DIF > 
 %DIF -------
 \documentclass{article}
@@ -122,7 +122,9 @@ wouter.jochems@student.kuleuven.be}
 Deze paper onderzoekt een mogelijke toepassing van SmartLEDs, LEDs aangestuurd door een microcontroller\cite{smartLED}. Specifiek bestuderen we hun mogelijkheden op het gebied van LED-displays. LED-displays kennen veel toepassingen in verschillende gebieden, zoals marketing en entertainment. De fundamentele opbouw is vaak die van een centrale aansturing die het hele display bestuurt. \DIFdelbegin \DIFdel{Dit zorgt voor enkele problemen en beperkingen }\DIFdelend \DIFaddbegin \DIFadd{Deze opbouw legt echter enkele beperkingen op en kan voor bepaalde problemen zorgen}\DIFaddend . We onderzoeken of een LED-display opgebouwd uit SmartLEDs\DIFaddbegin \DIFadd{, waarbij er geen centrale aansturing is, }\DIFaddend een meerwaarde biedt \DIFdelbegin \DIFdel{. We concluderen dat }\DIFdelend \DIFaddbegin \DIFadd{ten opzichte van de beperkingen die we bij de klassieke displays vaststellen. We evalueren de }\DIFaddend SmartLED-displays \DIFaddbegin \DIFadd{op hun flexibiliteit, hun interactiviteit en hun modulariteit. We concluderen dat, hoewel aan onze criteria wordt voldaan,  SmartLED-displays }\DIFaddend niet altijd een goede vervanging zijn voor conventionele LED-displays\DIFdelbegin \DIFdel{, maar }\DIFdelend \DIFaddbegin \DIFadd{. Ze bieden echter }\DIFaddend wel extra mogelijkheden \DIFdelbegin \DIFdel{bieden voor meer experimentelere }\DIFdelend \DIFaddbegin \DIFadd{voor meer experimentele }\DIFaddend LED-displays.
 \end{abstract}
 
-{\bf Keywords:} SmartLED, VLC, LED, LED Display, Arduino, Microcontroller,
+{\bf Keywords:} SmartLED, VLC, LED, LED Display, Arduino, Microcontroller
+\DIFdelbegin \DIFdel{,
+}\DIFdelend 
 
 
 \section{Introductie}
@@ -139,7 +141,7 @@ LED-displays worden \DIFdelbegin \DIFdel{tegenwoordig }\DIFdelend vaak gebruikt 
 \begin{enumerate}
 
 
-\item \DIFadd{Een eerste punt is }\textbf{\DIFadd{flexibiliteit}}\DIFadd{. Er zijn reeds flexibele displays beschikbaar. Omdat elke led vanuit een centraal punt wordt aangestuurd is het nodig dat deze centrale controller kennis heeft van de positie van de LEDs}\DIFaddend . Dit zorgt ervoor dat \DIFaddbegin \DIFadd{de huidige }\DIFaddend flexibele displays beperkt zijn in hun \DIFdelbegin \DIFdel{bewegelijkheid. Bij de huidige interactive displays is het vaak zo dat het display een statisch geheel is }\DIFdelend \DIFaddbegin \DIFadd{bewegingsmogelijkheden. De individuele LEDs zijn vaak aangesloten op een raster of slinger om de relatieve positie van de LEDs ten opzichte van elkaar te behouden. Door de centrale controller weg te laten denken wij de nood aan het behouden van de relatieve posities te elimineren. Dit leidt tot meer mogelijkheden voor de dynamische flexibiliteit van een SmartLED-display}\DIFaddend .
+\item \DIFadd{Een eerste punt is }\textbf{\DIFadd{flexibiliteit}}\DIFadd{. Er zijn reeds flexibele displays beschikbaar. Omdat elke led vanuit een centraal punt wordt aangestuurd is het nodig dat deze centrale controller kennis heeft van de positie van de LEDs}\DIFaddend . Dit zorgt \DIFdelbegin \DIFdel{ervoor dat }\DIFdelend \DIFaddbegin \DIFadd{er voor dat de huidige }\DIFaddend flexibele displays beperkt zijn in hun \DIFdelbegin \DIFdel{bewegelijkheid. Bij de huidige interactive displays is het vaak zo dat het display een statisch geheel is }\DIFdelend \DIFaddbegin \DIFadd{bewegingsmogelijkheden. De individuele LEDs zijn vaak aangesloten op een raster of slinger om de relatieve positie van de LEDs ten opzichte van elkaar te behouden. Door de centrale controller weg te laten denken wij de nood aan het behouden van de relatieve posities te elimineren. Dit leidt tot meer mogelijkheden voor de dynamische flexibiliteit van een SmartLED-display}\DIFaddend .
 \DIFdelbegin \DIFdel{Dit beperkt de interactie tot communicatie met een interface. De fysieke eigenschappen van het display kunnen niet aangepast worden. Bovendien zorgen problemen met de controle eenheid of met dit grid meteen voor significante storingen in het display \mbox{%DIFAUXCMD
 \cite{brokenDisplay} }\hspace{0pt}%DIFAUXCMD
 waardoor vaak het hele display zo goed als onbruikbaar wordt.
@@ -150,7 +152,7 @@ waardoor vaak het hele display zo goed als onbruikbaar wordt.
 \item \DIFaddFL{Een tweede punt is }\textbf{\DIFaddFL{interactiviteit}}\DIFaddFL{. Ook hier zijn er reeds interactieve displays op de markt. Deze zijn echter vaak rigide. Door elke SmartLED van een eigen micro-controller te voorzien zorgen we ervoor dat deze zelf signalen van buitenaf kan verwerken. De individuele LEDs zijn bijgevolg onafhankelijk van andere besturingselementen toch in staat om in interactie te treden met de buitenwereld. Voor deze interactie maken we gebruikt van een “lichtpen”, dit is een SmartLED die een gebruiker op het display kan richten om zo signalen over te brengen aan de hand van infrarood licht.
 }
 
-\item \DIFaddFL{Als derde en laatste punt bekijken we }\textbf{\DIFaddFL{modulariteit}}\DIFaddFL{. Zoals eerder vermeld is de flexibiliteit van de huidige displays beperkt. Doordat de LEDs vanuit \'e\'en centraal punt worden aangestuurd zullen problemen bij de centrale controller een impact hebben op het hele display. Ook is het vaak moeilijk om een individuele LED of groepen van LEDs te vervangen wanneer deze niet meer werken. Door elke SmartLED als individuele entiteit te laten functioneren kunnen problemen zich niet voortplanten over het display. Omdat de SmartLEDs enkel afhankelijk zijn van zichzelf is het ook makkelijk om een enkele led te vervangen.
+\item \DIFaddFL{Als derde en laatste punt bekijken we }\textbf{\DIFaddFL{modulariteit}}\DIFaddFL{. Zoals eerder vermeld is de flexibiliteit van de huidige displays beperkt. Doordat de LEDs vanuit \'e\'en centraal punt worden aangestuurd, zullen problemen bij de centrale controller een impact hebben op het hele display. Ook is het vaak moeilijk om een individuele LED of groepen van LEDs te vervangen wanneer deze niet meer werken. Door elke SmartLED als individuele entiteit te laten functioneren kunnen problemen zich niet voortplanten over het display. Omdat de SmartLEDs enkel afhankelijk zijn van zichzelf is het ook makkelijk om een enkele led te vervangen.
 }\end{enumerate}
 
 \begin{figure}[H]
@@ -180,9 +182,9 @@ Dit project is een rechtstreeks vervolg op het project van vorig jaar waarin de 
 \DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
 \cite{smartLED}
 }\hspace{0pt}%DIFAUXCMD
-}\DIFaddend Daarnaast is er al veel onderzoek gebeurd rond LEDs en hun mogelijk tot signaaloverdracht. Zo werd er al door ETH Zurich en Disney research onderzoek gedaan naar de mogelijkheden van VLC\DIFaddbegin \DIFadd{, visual light communication, }\DIFaddend networks waarbij verschillende microcontrollers met elkaar communiceerden via LEDs \cite{VLCNetworks}.  \DIFaddbegin \DIFadd{Verder is er nog project firefly\mbox{%DIFAUXCMD
+}\DIFaddend Daarnaast is er al veel onderzoek gebeurd rond LEDs en hun \DIFdelbegin \DIFdel{mogelijk }\DIFdelend \DIFaddbegin \DIFadd{mogelijkheid }\DIFaddend tot signaaloverdracht. Zo werd er al door ETH Zurich en Disney research onderzoek gedaan naar de mogelijkheden van VLC \DIFdelbegin \DIFdel{networks }\DIFdelend \DIFaddbegin \DIFadd{netwerken (visual light communication). Dit zijn netwerken }\DIFaddend waarbij verschillende microcontrollers met elkaar \DIFdelbegin \DIFdel{communiceerden }\DIFdelend \DIFaddbegin \DIFadd{communiceren }\DIFaddend via LEDs \cite{VLCNetworks}.  \DIFaddbegin \DIFadd{Verder is er nog project firefly\mbox{%DIFAUXCMD
 \cite{firefly} }\hspace{0pt}%DIFAUXCMD
-waarbij reeds een werkend display werd opgebouwd van individueel aangestuurde LEDs maar deze waren nog steeds verbonden via een kabel.
+waarbij reeds een werkend display werd opgebouwd van individueel aangestuurde LEDs. Maar deze waren nog steeds verbonden via een kabel.
 }\DIFaddend 
 
 
@@ -210,7 +212,7 @@ Voor de \DIFdelbegin \DIFdel{interactie }\DIFdelend \DIFaddbegin \textbf{\DIFadd
 %DIFDELCMD < %%%
 \DIFdel{Om }\DIFdelend \DIFaddbegin \DIFadd{Opstelling}}
 \DIFadd{De uiteindelijke implementatie zou gebruik maken van SmartLEDs. Om praktische redenen waren wij niet in staat deze te gebruiken tijdens ons onderzoek. 
-Om }\DIFaddend onze hypothese te testen \DIFdelbegin \DIFdel{maakten }\DIFdelend \DIFaddbegin \DIFadd{maken }\DIFaddend we gebruik van LEDs verbonden met Zigduino r2 microcontrollers. \DIFdelbegin \DIFdel{We maakten gebruik van infrarood LEDs voor de communicatie om extra lichtflikkeringen in het display te voorkomen en om interferentie van de omgeving zo veel mogelijk te vermijden. }\DIFdelend \DIFaddbegin \DIFadd{De Zigduino’s bevatten een infrarood led en een RGB led. We kiezen ervoor om een infrarood led toe te voegen omdat dit de communicatie een stuk minder complex maakt. Indien we gebruik zouden maken van zichtbaar licht, zoals bij VLC, is het nodig om rekening te houden met het omgevingslicht. Dit veranderd voortdurend en deze verandering moet in rekening gebracht worden om onderscheidt te maken van een doelbewust signaal en het aanwezige omgevingslicht. De veranderingen in het aanwezige infrarood licht zijn veel minder uitgesproken. Dit laat ons toe om de threshold, de waarde vanaf wanneer we een signaal registreren, redelijk constant te houden. Om deze reden stappen we af van de pure VLC en kiezen we ervoor een extra infrarood LED toe te voegen.
+Om }\DIFaddend onze hypothese te testen \DIFdelbegin \DIFdel{maakten }\DIFdelend \DIFaddbegin \DIFadd{maken }\DIFaddend we gebruik van LEDs verbonden met Zigduino r2 microcontrollers. \DIFdelbegin \DIFdel{We maakten gebruik van infrarood LEDs voor de communicatie om extra lichtflikkeringen in het display te voorkomen en om interferentie van de omgeving zo veel mogelijk te vermijden. }\DIFdelend \DIFaddbegin \DIFadd{De Zigduino’s bevatten een infrarood led en een RGB led. We kiezen ervoor om een infrarood led toe te voegen omdat dit de communicatie een stuk minder complex maakt. Indien we gebruik zouden maken van zichtbaar licht, zoals bij VLC, is het nodig om rekening te houden met het omgevingslicht. Dit verandert voortdurend en deze verandering moet in rekening gebracht worden om onderscheid te maken tussen een doelbewust signaal en het aanwezige omgevingslicht. De veranderingen in het aanwezige infrarood licht zijn veel minder uitgesproken. Dit laat ons toe om de threshold, de waarde vanaf wanneer we een signaal registreren, redelijk constant te houden. Om deze reden stappen we af van de pure VLC en kiezen we er voor een extra infrarood LED toe te voegen.
 }\DIFaddend 
 
 \DIFdelbegin \section{\DIFdel{Oplossing}}
@@ -271,7 +273,7 @@ gebruikt wordt. Dit vermoeden wordt bevestigd door de resultaten in tabel 1. Dez
 \cite{Arduino} }\hspace{0pt}%DIFAUXCMD
 bevat het bord een analog to digital converter. Deze mapt het input voltage op integer waarden tussen 0 }\DIFaddend en \DIFdelbegin \DIFdel{doorgeeft aan een microcontroller en vervolgens een derde die de ontvangen bit-string weer uitzendt in een andere richting. In minder conventionele LED-displays (met een vorm die het toelaat de LEDs naar een elkaar te richten of met bewegende onderdelen)is onderlinge communicatie dus wel mogelijk}\DIFdelend \DIFaddbegin \DIFadd{1023. Bij de Zigduinos gebeurt dit op dezelfde manier. De tabel geeft een gemiddelde van 30 metingen van deze integer waarden zoals gemeten met de lichtbron op verschillende afstanden, alsook zonder de lichtbron}\DIFaddend . 
 
-\DIFaddbegin \DIFadd{Om het verschil tussen de forward bias en reverse bias te bevestigen bekijken we de waarden voor een afstand van 8 cm. Dit lijkt ons een representatieve afstand voor de communicatie met de lichtpen. We bekijken het absolute verschil tussen de waardes met en de waardes zonder lichtbron. 
+\DIFaddbegin \DIFadd{Om het verschil tussen de forward bias en reverse bias te bevestigen bekijken we de waarden voor een afstand van 8 cm. Dit lijkt ons een representatieve afstand voor de communicatie met de lichtpen. We bekijken het absolute verschil tussen de waarden met en de waarden zonder lichtbron. 
 Voor de forward bias zien we een absoluut verschil van 27. Dit bedraagt slechts 6,96\% van de standaardwaarde zonder licht. 
 Voor de reverse bias zien we een absoluut verschil van 712, ofwel 98,6\% van de standaardwaarde zonder licht. 
 Door het grote verschil in waarde is het makkelijker om te registreren wanneer er effectief een signaal naar de LED wordt gestuurd in plaats van eventuele ruis. We plaatsen de infrarood LED dus in reverse bias.
@@ -302,7 +304,7 @@ Door het grote verschil in waarde is het makkelijker om te registreren wanneer e
 
 \subsection{\DIFadd{Synchronisatie}}\label{synch}
 
- \DIFadd{Voor de }\textbf{\DIFadd{synchronisatie}} \DIFadd{maken we gebruik van oversampling, zoals beschreven in de paper. Dit houdt in dat we voor elke bit meerdere lezingen uitvoeren, namelijk 3. Door de metingen met elkaar te vergelijken kunnen onverwachte veranderingen worden opgespoord. Hieruit kan worden afgeleid of de lezer voor of achterloopt op de zender. Om ervoor te zorgen dat de juiste bitstring gelezen wordt, zal de lezer de fout corrigeren door de laatste meting van de vorige bit over te brengen naar de volgende. Voor de volgende bit worden dan maar 2 bijkomende metingen gedaan.
+ \DIFadd{Voor de }\textbf{\DIFadd{synchronisatie}} \DIFadd{maken we gebruik van oversampling, zoals beschreven in de paper. Dit houdt in dat we voor elke bit meerdere lezingen uitvoeren, namelijk 3. Door de metingen met elkaar te vergelijken, kunnen onverwachte veranderingen worden opgespoord. Hieruit kan worden afgeleid of de lezer voor of achterloopt op de zender. Om ervoor te zorgen dat de juiste bitstring gelezen wordt, zal de lezer de fout corrigeren door de laatste meting van de vorige bit over te brengen naar de volgende. Voor de volgende bit worden dan maar 2 bijkomende metingen gedaan.
  }
 
 \DIFadd{Om het begin van de bitstring aan te geven gebruiken we een preamble. Deze bestaat simpelweg uit drie een’en gevolgd door een nul. De ontvanger controleert of hij deze preamble ontvangt en indien dit het geval is, begint hij de bitstring te registreren.
@@ -311,7 +313,7 @@ Door het grote verschil in waarde is het makkelijker om te registreren wanneer e
 \subsection{\DIFadd{Threshold}}
 
 \DIFadd{Om ervoor te zorgen dat de SmartLEDs een verschil zien tussen omgevingslicht en een signaal moeten we een threshold, een waarde vanaf wanneer we een meeting als input beschouwen, instellen. Omdat we gebruik maken van infraroodlicht blijft de waarde van de threshold redelijk constant. We merken echter wel verschillen in de gemeten basiswaarde afhankelijk van het gebruikte Zigduino-bord en eventuele storingsbronnen. Hierdoor is het nodig om op regelmatige tijdstippen de waarde van de threshold bij te sturen. 
-Wanneer we de gemeten waarde zonder lichtinput plotten krijgen we een duidelijk sinusoïdale verloop zoals te zien op figuur \ref{fig:ruis}. Dit valt te verklaren door de RC-kringen in de gebruikte zigduino’s die als oscillator werken. \mbox{%DIFAUXCMD
+Wanneer we de gemeten waarde zonder lichtinput plotten krijgen we een duidelijk sinusodaal verloop zoals te zien op figuur \ref{fig:ruis}. Dit valt te verklaren door de RC-kringen in de gebruikte zigduino’s die als oscillator werken. \mbox{%DIFAUXCMD
 \cite{oscillator}  
 }\hspace{0pt}%DIFAUXCMD
 }
@@ -392,12 +394,12 @@ Om \DIFdelbegin \DIFdel{deze redenen kozen we om met een tweede LED te werken. O
 \DIFadd{Zoals eerder vermeld maken we voor de }\DIFaddend interactie met het \DIFdelbegin \DIFdel{LED-display mogelijk was. Dit aan de hand }\DIFdelend \DIFaddbegin \DIFadd{display gebruik }\DIFaddend van een lichtpen\DIFdelbegin \DIFdel{(een LED met een microcontroller achter) die op een bepaalde manier geprogrammeerd was. }%DIFDELCMD < 
 
 %DIFDELCMD < %%%
-\DIFdelend \DIFaddbegin \DIFadd{. Deze interactie kan op twee manieren verlopen. }\DIFaddend De eerste manier \DIFdelbegin \DIFdel{bestond uit een reactie van het display wanneer een signaalverzonden werd, versus wanneer er geen verzonden werd. We programmeerden hiervoor een soort }\DIFdelend \DIFaddbegin \DIFadd{maakt gebruik van een heel simpele aanpak. Hierbij kijkt het display enkel naar de aan- of afwezigheid van een signaal. Dit noemen wij de }\DIFaddend "\DIFaddbegin \DIFadd{Na\"ive Methode". Voor de tweede manier maken we gebruik van de communicatiemethode zoals eerder beschreven (in sectie \ref{communicatie}). Deze methode noemen wij de "Bitstring Methode".
+\DIFdelend \DIFaddbegin \DIFadd{. Deze interactie kan op twee manieren verlopen. }\DIFaddend De eerste manier \DIFdelbegin \DIFdel{bestond uit een reactie van het display wanneer een signaalverzonden werd, versus wanneer er geen verzonden werd. We programmeerden hiervoor een soort }\DIFdelend \DIFaddbegin \DIFadd{maakt gebruik van een heel simpele aanpak. Hierbij kijkt het display enkel naar de aan- of afwezigheid van een signaal. Dit noemen wij de }\DIFaddend "\DIFaddbegin \DIFadd{Na\"ieve Methode". Voor de tweede manier maken we gebruik van de communicatiemethode zoals eerder beschreven (in sectie \ref{communicatie}). Deze methode noemen wij de "Bitstring Methode".
 }
 
-\subsection{\DIFadd{Na\"ive Methode}}
+\subsection{\DIFadd{Na\"ieve Methode}}
 
-\DIFadd{Voor de na\"ive methode is er geen nood aan de synchronisatie zoals beschreven in \ref{synch}. De display-SmartLEDs registreren elke waarde die de threshold overschrijdt al input. Deze vorm van communicatie stelt ons al in staat enkele simpele toepassingen te implementeren.
+\DIFadd{Voor de na\"ieve methode is er geen nood aan de synchronisatie zoals beschreven in \ref{synch}. De display-SmartLEDs registreren elke waarde die de threshold overschrijdt als input. Deze vorm van communicatie stelt ons in staat enkele simpele toepassingen te implementeren.
 }
 
 \subsubsection{\DIFadd{Verfborstel}}
@@ -409,7 +411,7 @@ Om \DIFdelbegin \DIFdel{deze redenen kozen we om met een tweede LED te werken. O
 
 
 \subsubsection{\DIFadd{Whack-a-Mole}}
-\DIFadd{Voor een tweede toepassing met de na\"ive methode wilden we de interactiemogelijkheden testen met behulp van een interactief spel. Hierbij nemen de SmartLEDs wel initiatief en wordt hun volgende actie bepaald afhankelijk van de actie van de gebruiker. 
+\DIFadd{Voor een tweede toepassing met de na\"ieve methode wilden we de interactiemogelijkheden testen met behulp van een interactief spel. Hierbij nemen de SmartLEDs wel initiatief en wordt hun volgende actie bepaald afhankelijk van de actie van de gebruiker. 
 }
 
 \DIFadd{We kozen hier voor een variant op "}\DIFaddend \textit{\DIFdelbegin \DIFdel{Whack-a-mole}\DIFdelend \DIFaddbegin \DIFadd{Whack-a-Mole}\DIFaddend }" \DIFdelbegin \DIFdel{spel waarbij de speler een bepaalde tijd heeft om te reageren op een licht verandering door de lichtpen hierover te laten schijnen. Zowel bij succes als bij mislukking geeft het display feedback door weer van licht te veranderen (zie figuur \ref{fig:mole}).
@@ -427,17 +429,14 @@ Ook hier is er geen nood aan synchronisatie, de willekeurige aard van het spel l
 \label{fig:mole}
 \end{figure}
 
-\DIFdelbegin \DIFdel{Bij de }\DIFdelend \DIFaddbegin \subsection{\DIFadd{Bitstring Methode}}
+\DIFdelbegin \DIFdel{Bij de tweede manier wordt er een bit-string verzonden naar het display. Deze manier hebben we getest met een programma waarbij een bit-string gelijk werd gesteld aan een kleur die de display LED moest aannemen of aan een programma dat afgespeeld moest }\DIFdelend \DIFaddbegin \subsection{\DIFadd{Bitstring Methode}}
 
 
 \DIFadd{Bij de bitstring methode hebben de lichtpen voorzien van drie knoppen. Deze knoppen hebben elk hun eigen unieke bistring. Dit laat ons toe om meer interactiemogelijkheden te gebruiken bij de implementatie. 
 }
 
 \subsubsection{\DIFadd{Verfborstel 2}}
-\DIFadd{We hebben de verfborstel applicatie uitgebreid met deze nieuwe mogelijkheden. Elke knop komt nu overeen met een kleur: rood, groen en blauw. Wanneer de gebruiker een knop indrukt zal de display-LED de overeenkomstige kleur aannemen. Na enkele seconden wordt de LED terug wit. Ook is het mogelijk om aan een combinatie van knoppen een bitstring toe te kennen. Zo kunnen meerdere kleuren bekomen worden. 
-}
-
-\DIFadd{Bij de }\DIFaddend tweede manier wordt er een bit-string verzonden naar het display. Deze manier hebben we getest met een programma waarbij een bit-string gelijk werd gesteld aan een kleur die de display LED moest aannemen of aan een programma dat afgespeeld moest worden.
+\DIFadd{We hebben de verfborstel applicatie uitgebreid met deze nieuwe mogelijkheden. Elke knop komt nu overeen met een kleur: rood, groen en blauw. Wanneer de gebruiker een knop indrukt zal de display-LED de overeenkomstige kleur aannemen. Na enkele seconden wordt de LED terug wit. Ook is het mogelijk om aan een combinatie van knoppen een bitstring toe te kennen. Zo kunnen verschillende kleuren bekomen }\DIFaddend worden. 
 
 \DIFdelbegin \subsection{\DIFdel{Omgevingslicht}}
 %DIFAUXCMD
@@ -476,13 +475,13 @@ Ook hier is er geen nood aan synchronisatie, de willekeurige aard van het spel l
 Dit proces wordt weer meerdere keren herhaald doorheen de uitvoering van het programma. }\DIFdelend \DIFaddbegin \subsubsection{\DIFadd{Programma selecteren}}
 \DIFaddend 
 
-\DIFaddbegin \DIFadd{Het is mogelijk om de knoppen een functie te geven buiten de applicatie, bijvoorbeeld om een andere applicatie te selecteren. Zo kan 1 knop gebruikt worden om de SmartLEDs in een “selectie” toestand te brengen. Vanuit deze toestand wachten de display-LEDs op een input om over te schakelen naar het volgende programma. Indien de lichtpen voorzien is van een groter bereik (door meerdere infrarood-LEDs te monteren), zou het mogelijk moeten zijn om de display-LEDs gelijktijdig met een ander programma te laten starten. De synchronisatie zal hier waarschijnlijk niet perfect zijn. Dit is iets waar bij het schrijven van toepassingen rekening moet worden gehouden.
+\DIFaddbegin \DIFadd{Het is mogelijk om de knoppen een functie te geven buiten de applicatie, bijvoorbeeld om een andere applicatie te selecteren. Zo kan 1 knop gebruikt worden om de SmartLEDs in een "selectie" toestand te brengen. Vanuit deze toestand wachten de display-LEDs op een input om over te schakelen naar het volgende programma. Indien de lichtpen voorzien is van een groter bereik (door meerdere infrarood-LEDs te monteren), zou het mogelijk moeten zijn om de display-LEDs gelijktijdig met een ander programma te laten starten. De synchronisatie zal hier waarschijnlijk niet perfect zijn. Dit is iets waar bij het schrijven van toepassingen rekening mee moet worden gehouden.
 }
 
 \DIFaddend \section{Conclusie}
 \DIFdelbegin \DIFdel{We concluderen dat }\DIFdelend \DIFaddbegin 
 
-\DIFadd{We bekijken voor elk van de drie criteria of de SmartLEDs hier geschikt voor zijn en evalueren de andere gevolgen van een SmartLED-display.
+\DIFadd{We bekijken voor elk van de drie criteria of de SmartLEDs hier geschikt voor zijn en evalueren de andere gevolgen van het gebruik van een SmartLED-display.
  }
 
 \subsection{\DIFadd{Evaluatiecriteria}}
@@ -493,12 +492,12 @@ Dit proces wordt weer meerdere keren herhaald doorheen de uitvoering van het pro
 
 \subsubsection{\DIFadd{Interactie}}
 
-\DIFadd{De interactie met het display gebeurt aan de hand van een lichtpen voorzien van knoppen. We zijn in staat om verschillende signalen naar het display te sturen en hier visuele feedback vanuit het display op te geven. Door de knoppen te voorzien van bijvoorbeeld gekleurde stickers is de communicatie heel intuïtief; er is weinig of geen uitleg nodig voor een gebruiker om met het display te communiceren. Hieruit besluiten we dat het display voldoet aan onze interactie criteria.
+\DIFadd{De interactie met het display gebeurt aan de hand van een lichtpen voorzien van knoppen. We zijn in staat om verschillende signalen naar het display te sturen en hier visuele feedback vanuit het display op te geven. Door de knoppen te voorzien van bijvoorbeeld gekleurde stickers is de communicatie heel intuïtief; er is weinig of geen uitleg nodig voor een gebruiker om met het display te communiceren. Hieruit besluiten we dat het display voldoet aan onze interactiecriteria.
 }
 
 \subsubsection{\DIFadd{Modulariteit}}
 
-\DIFadd{De SmartLEDs kunnen een gesimuleerd geheel vormen zonder dat het uitmaakt welke LEDs deel uitmaken van het display. Hierdoor is het mogelijk om SmartLEDs weg te halen of toe te voegen, mits deze dezelfde applicatie uitvoeren. De SmartLEDs zijn onafhankelijk van elkaar. Indien er een SmartLED defect is zal dit zich beperken tot de individuele LED en niet verspreiden over het display. We besluiten dan het SmartLED-display voldoet aan onze modulariteitscriteria.
+\DIFadd{De SmartLEDs kunnen een gesimuleerd geheel vormen zonder dat het belangrijk is welke LEDs deel uitmaken van het display. Hierdoor is het mogelijk om SmartLEDs weg te halen of toe te voegen, mits deze dezelfde applicatie uitvoeren. De SmartLEDs zijn onafhankelijk van elkaar. Indien er een SmartLED defect is zal dit defect zich beperken tot de individuele LED en niet verspreiden over het display. We besluiten dat het SmartLED-display voldoet aan onze modulariteitscriteria.
 }
 
 \subsection{\DIFadd{Beperkingen}}
