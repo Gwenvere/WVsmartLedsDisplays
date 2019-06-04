@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.13)  3 JUN 2019 23:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.13)  4 JUN 2019 11:24
 entering extended mode
 **./paper.tex
 (paper.tex
@@ -717,55 +717,87 @@ Underfull \hbox (badness 1616) in paragraph at lines 217--218
 \OT1/ptm/m/n/11 com-mu-ni-ca-tie stelt ons al in staat en-kele sim-pele
  []
 
-
-Underfull \hbox (badness 1688) in paragraph at lines 221--222
-\OT1/ptm/m/n/11 hier-voor een soort "\OT1/ptm/m/it/11 Whack-a-mole\OT1/ptm/m/n/
-11 "spel waar-bij de
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 219.
+[5 <./LedNaastElkaar.png>]
+Underfull \hbox (badness 3158) in paragraph at lines 222--223
+\OT1/ptm/m/n/11 ze van kleur, naar blauw. Deze kleur hou-den
  []
 
-[5 <./LedNaastElkaar.png>]
+
+Underfull \hbox (badness 1365) in paragraph at lines 222--223
+\OT1/ptm/m/n/11 ze en-kele se-con-den aan waarna ze weer naar wit
+ []
+
+
+Underfull \hbox (badness 4132) in paragraph at lines 225--226
+\OT1/ptm/m/n/11 wil-den we de in-ter-ac-tie-mo-ge-lijk-he-den tes-ten met
+ []
+
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ú in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ù in font ptmr7t!
+
+Underfull \hbox (badness 10000) in paragraph at lines 227--229
+[]\OT1/ptm/m/n/11 We ko-zen hier voor een va-ri-ant op
+ []
+
+
+Underfull \hbox (badness 7433) in paragraph at lines 227--229
+\OT1/ptm/m/n/11 "\OT1/ptm/m/it/11 Whack-a-mole\OT1/ptm/m/n/11 "(zie fi-guur 8[]
+). Hier staan de
+ []
+
+
+Underfull \hbox (badness 2096) in paragraph at lines 227--229
+\OT1/ptm/m/n/11 display-LEDs bij de start van het pro-gramma op
+ []
+
 <moleSequence.png, id=34, 729.927pt x 242.8272pt>
 File: moleSequence.png Graphic file (type png)
 <use moleSequence.png>
-Package pdftex.def Info: moleSequence.png  used on input line 225.
+Package pdftex.def Info: moleSequence.png  used on input line 233.
 (pdftex.def)             Requested size: 227.62204pt x 75.72398pt.
 
-Underfull \hbox (badness 1478) in paragraph at lines 232--235
+Underfull \hbox (badness 1478) in paragraph at lines 240--243
 \OT1/ptm/m/n/11 cor-res-pon-de-ren met knop-pen) //TODO be-schrij-ving
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 232--235
+Underfull \hbox (badness 10000) in paragraph at lines 240--243
 \OT1/ptm/m/n/11 brush ap-pli-ca-tie //TODO be-schrij-ving pro-gram
  []
 
 
-Underfull \hbox (badness 3965) in paragraph at lines 238--239
+Underfull \hbox (badness 3965) in paragraph at lines 246--247
 []\OT1/ptm/m/n/11 Bij de tweede ma-nier wordt er een bit-string
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+Underfull \hbox (badness 10000) in paragraph at lines 252--253
 []\OT1/ptm/m/n/11 Conventionele LED-displays ko-men vooral
  []
 
 
-Underfull \hbox (badness 6188) in paragraph at lines 244--245
+Underfull \hbox (badness 6188) in paragraph at lines 252--253
 \OT1/ptm/m/n/11 vlak voor en dit is he-laas niet echt mo-ge-lijk
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+Underfull \hbox (badness 10000) in paragraph at lines 252--253
 \OT1/ptm/m/n/11 met SmartLED-displays aan-ge-zien zo geen
  []
 
 
-Underfull \hbox (badness 2608) in paragraph at lines 244--245
+Underfull \hbox (badness 2608) in paragraph at lines 252--253
 \OT1/ptm/m/n/11 com-mu-ni-ca-tie mo-ge-lijk is. Hier-uit be-slui-ten we
  []
 
 
-Underfull \hbox (badness 3713) in paragraph at lines 244--245
+Underfull \hbox (badness 3713) in paragraph at lines 252--253
 \OT1/ptm/m/n/11 dat SmartLED-displays geen al-ter-na-tief zijn voor
  []
 
@@ -794,46 +826,52 @@ Overfull \hbox (39.6489pt too wide) in paragraph at lines 20--23
 []\OT1/ptm/m/n/11 Rc-oscillator.  https://nl.wikipedia.org/wiki/RC-oscillator.
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 26--28
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 27.
+("E:\Program Files\Miktex\tex\latex\psnfss\ot1pcr.fd"
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 31--33
 []\OT1/ptm/m/n/11 S. Schmid, S. Man-gold,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--32
+Underfull \hbox (badness 10000) in paragraph at lines 35--37
 []\OT1/ptm/m/n/11 P. Valdez and
  []
 
 
-Underfull \hbox (badness 1888) in paragraph at lines 30--32
+Underfull \hbox (badness 1888) in paragraph at lines 35--37
 \OT1/ptm/m/n/11 A. Mehrabian.  Ef-fects of co-lor on emo-ti-ons,
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 34--36
+[6 <./moleSequence.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 39--41
 []\OT1/ptm/m/n/11 M. Van-de-cau-ter and
  []
 
-) [6 <./moleSequence.png>] (paper.aux)
+) [7
+
+] (paper.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 3303 strings out of 493305
- 46201 string characters out of 3140590
- 132857 words of memory out of 3000000
- 6783 multiletter control sequences out of 15000+200000
- 26916 words of font info for 53 fonts, out of 3000000 for 9000
+ 3342 strings out of 493305
+ 46738 string characters out of 3140590
+ 132872 words of memory out of 3000000
+ 6816 multiletter control sequences out of 15000+200000
+ 29057 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,10n,25p,876b,247s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,10n,25p,876b,256s stack positions out of 5000i,500n,10000p,200000b,50000s
 {E:/Program Files/Miktex/fonts/enc/dvips/base/8r.enc}<E:/Program Files/Miktex
-/fonts/type1/urw/times/utmb8a.pfb><E:/Program Files/Miktex/fonts/type1/urw/time
-s/utmr8a.pfb><E:/Program Files/Miktex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (6 pages, 3255653 bytes).
+/fonts/type1/urw/courier/ucrr8a.pfb><E:/Program Files/Miktex/fonts/type1/urw/ti
+mes/utmb8a.pfb><E:/Program Files/Miktex/fonts/type1/urw/times/utmr8a.pfb><E:/Pr
+ogram Files/Miktex/fonts/type1/urw/times/utmri8a.pfb>
+Output written on paper.pdf (7 pages, 3267469 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
+ 59 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

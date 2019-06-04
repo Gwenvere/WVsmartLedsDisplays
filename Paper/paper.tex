@@ -216,9 +216,17 @@ Zoals eerder vermeld maken we voor de interactie met het display gebruik van een
 
 Voor de na\"ive methode is er geen nood aan de synchronisatie zoals beschreven in \ref{synch}. De display-SmartLEDs registreren elke waarde die de threshold overschrijdt al input. Deze vorm van communicatie stelt ons al in staat enkele simpele toepassingen te implementeren.
 
-//TODO beschrijven simpele brush applicatie en mole game
+\subsubsection{Verfborstel}
+Een eerste toepassing is een verfborstel applicatie. Deze vorm van interactie is volledig afhankelijk van de input van de gebruiker; de SmartLEDs nemen zelf geen initiatief.
 
-De eerste manier bestond uit een reactie van het display wanneer een signaal verzonden werd, versus wanneer er geen verzonden werd. We programmeerden hiervoor een soort "\textit{Whack-a-mole}" spel waarbij de speler een bepaalde tijd heeft om te reageren op een licht verandering door de lichtpen hierover te laten schijnen. Zowel bij succes als bij mislukking geeft het display feedback door weer van licht te veranderen (zie figuur \ref{fig:mole}).
+Bij de start van het programma staan de display-LEDs op wit. Wanneer de lichtpen voorbij komt veranderen ze van kleur, naar blauw. Deze kleur houden ze enkele seconden aan waarna ze weer naar wit overschakelen. Wanneer we meerdere display-LEDs naast elkaar zetten zijn we in staat een groter canvas te maken. Door de aard van de toepassing is het niet nodig om synchronisatie te voorzien tussen de individuele SmartLEDs. Voor de gebruiker werkt het canvas als \'e\'en geheel.
+
+\subsubsection{Whack-a-mole}
+Voor een tweede toepassing met de na\"ive methode wilden we de interactiemogelijkheden testen met behulp van een interactief spel. Hierbij nemen de SmartLEDs wel initiatief en wordt hun volgende actie bepaald afhankelijk van de actie van de gebruiker. 
+
+We kozen hier voor een variant op "\textit{Whack-a-mole}" (zie figuur \ref{fig:mole}). Hier staan de display-LEDs bij de start van het programma op groen. Na een willekeurig bepaalde tijd veranderen ze van kleur, naar rood, om aan te geven dat de gebruiker actie moet ondernemen. Indien de gebruiker de lichtpen op de display-LED richt zal deze de input registreren en even overgaan naar blauw om aan te geven dat de rode LED succesvol is “uitgeschakeld”. Indien er binnen de twee seconden geen input wordt geregistreerd betekend dit dat de rode LED niet is uitgeschakeld en zal de display-LED dit aangeven door oranje te knipperen.  
+Ook hier is er geen nood aan synchronisatie, de willekeurige aard van het spel laat toe om de individuele Smart-LEDs als een gesimuleerd geheel te laten werken voor de gebruiker.
+
 
 \begin{figure}[H]
 \centering

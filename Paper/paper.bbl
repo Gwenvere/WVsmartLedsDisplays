@@ -21,6 +21,11 @@ Rc-oscillator.
 \newblock https://nl.wikipedia.org/wiki/RC-oscillator.
 \newblock Geraadpleegd: 2019-05-08.
 
+\bibitem[\protect\citeauthoryear{Rick}{2017}]{brokenDisplay}
+Rick.
+\newblock How to fix led display problem - part of the panels appear black.
+\newblock \url{https://www.szptcled.com/post_id_38.html}, 2017.
+
 \bibitem[\protect\citeauthoryear{Schmid \bgroup \em et al.\egroup
   }{2013}]{VLCNetworks}
 S.~Schmid, S.~Mangold, G.~Corbellini, and T.R. Gross.
