@@ -170,10 +170,9 @@ Voor ons onderzoek volstaat het om de threshold te bepalen wanneer de SmartLED w
 
 \section{Communicatie}\label{communicatie}
 \subsection{Face-to-face Communicatie}
-
 Wanneer we twee SmartLEDs naar elkaar richten (zoals in figuur \ref{fig:plaatsingFace}), kunnen we aan de hand van de eerder beschreven technieken een bitstring verzenden. Dit kunnen we gebruiken om via een lichtpen, een SmartLED die voorzien is van besturingsknoppen, een signaal door te sturen naar de andere SmartLEDs. 
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \includegraphics[width=7cm]{LedTegenoverElkaar.png}
 \caption{Stralingshoek bij Face-to-Face gepositioneerde LEDs}
@@ -273,9 +272,9 @@ Ook deze applicatie laat toe om het display als \'e\'en geheel te gebruiken, zon
 Het is mogelijk om de knoppen een functie te geven buiten de applicatie, bijvoorbeeld om een andere applicatie te selecteren. Zo kan 1 knop gebruikt worden om de SmartLEDs in een “selectie” toestand te brengen. Vanuit deze toestand wachten de display-LEDs op een input om over te schakelen naar het volgende programma. Indien de lichtpen voorzien is van een groter bereik (door meerdere infrarood-LEDs te monteren), zou het mogelijk moeten zijn om de display-LEDs gelijktijdig met een ander programma te laten starten. De synchronisatie zal hier waarschijnlijk niet perfect zijn. Dit is iets waar bij het schrijven van toepassingen rekening moet worden gehouden.
 
 \section{Conclusie}
-//TODO criteria uit evaluatie bespreken
 
-Conventionele LED-displays komen vooral vlak voor en dit is helaas niet echt mogelijk met SmartLED-displays aangezien zo geen communicatie mogelijk is. Hieruit besluiten we dat SmartLED-displays geen alternatief zijn voor conventionele LED-displays. Ze bezitten echter wel bepaalde eigenschappen die ze niet alleen bruikbaar maar ook bijzonder maken. Ze kunnen interactief gebruikt worden als simpele, vlakke displays zonder onderlinge communicatie maar ook zonder eventuele verbindingsproblemen. Daarnaast kunnen ze in andere vormen wel signalen doorgeven en dus meer als 1 geheel functioneren.
+Conventionele LED-displays komen vooral vlak voor en dit is helaas niet echt mogelijk met SmartLED-displays aangezien zo geen communicatie mogelijk is. Hieruit besluiten we dat SmartLED-displays geen alternatief zijn voor conventionele LED-displays. Ze bezitten echter wel bepaalde eigenschappen die ze niet alleen bruikbaar maar ook bijzonder maken. Ze zijn flexibel en modulair aangezien de individuele SmartLEDs zonder id's werken en enkel communiceren met andere SmartLEDs die op dat moment binnen bereik zijn. Ze zijn ook interactief, zoals aangetoond reageren ze op een lichtpen en kan zo het programma veranderd worden. Ten slotte de gevolgen van eventuelen problemen met een enkele SmartLED zeer beperkt.
+Hieruit concluderen we dat SmartLED-displays interactief gebruikt kunnen worden als simpele, vlakke displays zonder onderlinge communicatie. Daarnaast kunnen ze in andere vormen wel signalen doorgeven en dus meer als 1 geheel functioneren.
 
 
 \section{Verder werk}
