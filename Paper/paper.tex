@@ -95,7 +95,7 @@ Om onze hypothese te testen maken we gebruik van LEDs verbonden met Zigduino r2 
 
 \section{Methode}
 
-Voor het schrijven van de code\footnote{Alle code is beschikbaar op \\ https://github.com/WoodyJo/SmartLED-displays} gebruiken we de standaard Arduino IDE, aangepast om te werken met Zigduino's. De experimenten zijn gedaan met Zigduino r2 microcontrollers.
+Voor het schrijven van de code\footnote{Alle code is beschikbaar op \\ https://github.com/WoodyJo/SmartLED-displays} gebruiken we de standaard Arduino IDE, aangepast om te werken met Zigduino's. De experimenten zijn gedaan met Zigduino r2 microcontrollers. Bij de applicaties beschreven in sectie \ref{interactie} hebben we een pingpongbal over de LEDs geplaatst om het zichtbaar licht duidelijker te maken. Dit gaf geen hinder voor de communicatie.
 
 We zoeken eerst een methode om signalen door te geven over verschillende SmartLEDs. Hiervoor baseren we ons op het werk van \cite{smartLED}. Daarna bekijken we de mogelijkheden voor communicatie voor de voor ons 2 relevante aspecten: zijwaartse communicatie voor de LEDs in het display; en face-to-face voor interactie met een gebruiker.
  
@@ -209,7 +209,7 @@ Bij aanvang van ons project hoopten we voor het display en het verzenden van inf
 
 Om visuele redenen hebben we ervoor gekozen om als display-LED een RGB LED te gebruiken. Dit laat ons toe om via \'e\'en enkele LED meer te vari\"eren in de informatie die we kunnen overbrengen naar de gebruiken. Zo zijn kleuren in staat om emotionele reacties op te wekken \cite{color}. Omdat we voor een SmartLED display vooral een toepassing zien in marketing en entertainment vinden we de hogere kost van een RGB LED verantwoord. Kleuren spelen een belangrijk instrument in marketing \cite{marketing}.
 
-\section{Interactie}
+\section{Interactie}\label{interactie}
 Zoals eerder vermeld maken we voor de interactie met het display gebruik van een lichtpen. Deze interactie kan op twee manieren verlopen. De eerste manier maakt gebruik van een heel simpele aanpak. Hierbij kijkt het display enkel naar de aan- of afwezigheid van een signaal. Dit noemen wij de "Na\"ive Methode". Voor de tweede manier maken we gebruik van de communicatiemethode zoals eerder beschreven (in sectie \ref{communicatie}). Deze methode noemen wij de "Bitstring Methode".
 
 \subsection{Na\"ive Methode}
@@ -271,12 +271,30 @@ Het is mogelijk om de knoppen een functie te geven buiten de applicatie, bijvoor
 
 \section{Conclusie}
 
-Conventionele LED-displays komen vooral vlak voor en dit is helaas niet echt mogelijk met SmartLED-displays aangezien zo geen communicatie mogelijk is. Hieruit besluiten we dat SmartLED-displays geen alternatief zijn voor conventionele LED-displays. Ze bezitten echter wel bepaalde eigenschappen die ze niet alleen bruikbaar maar ook bijzonder maken. Ze zijn flexibel en modulair aangezien de individuele SmartLEDs zonder id's werken en enkel communiceren met andere SmartLEDs die op dat moment binnen bereik zijn. Ze zijn ook interactief, zoals aangetoond reageren ze op een lichtpen en kan zo het programma veranderd worden. Ten slotte de gevolgen van eventuelen problemen met een enkele SmartLED zeer beperkt.
-Hieruit concluderen we dat SmartLED-displays interactief gebruikt kunnen worden als simpele, vlakke displays zonder onderlinge communicatie. Daarnaast kunnen ze in andere vormen wel signalen doorgeven en dus meer als 1 geheel functioneren.
+We bekijken voor elk van de drie criteria of de SmartLEDs hier geschikt voor zijn en evalueren de andere gevolgen van een SmartLED-display.
+ 
+\subsection{Evaluatiecriteria}
+\subsubsection{Flexibiliteit}
+
+Er is geen zijwaartse communicatie tussen de SmartLEDs. Dit zorgt ervoor dat het niet nodig is dat de SmartLEDs op een vaste positie relatief ten opzichte van elkaar staan. Ook verloopt de communicatie onafhankelijk van omgevingsfactoren zoals licht. Het is dus mogelijk om de SmartLED te verplaatsen terwijl het programma loopt. Hieruit besluiten we dat een display opgebouwd uit SmartLEDs voldoet aan onze flexibiliteitscriteria.
+
+\subsubsection{Interactie}
+
+De interactie met het display gebeurt aan de hand van een lichtpen voorzien van knoppen. We zijn in staat om verschillende signalen naar het display te sturen en hier visuele feedback vanuit het display op te geven. Door de knoppen te voorzien van bijvoorbeeld gekleurde stickers is de communicatie heel intuïtief; er is weinig of geen uitleg nodig voor een gebruiker om met het display te communiceren. Hieruit besluiten we dat het display voldoet aan onze interactie criteria.
+
+\subsubsection{Modulariteit}
+
+De SmartLEDs kunnen een gesimuleerd geheel vormen zonder dat het uitmaakt welke LEDs deel uitmaken van het display. Hierdoor is het mogelijk om SmartLEDs weg te halen of toe te voegen, mist deze dezelfde applicatie uitvoeren. Ede SmartLEDs zijn onafhankelijk van elkaar. Indien er een SmartLED defect is zal dit zich beperken tot de individuele LED en niet verspreiden over het display. We besluiten dan het SmartLED-display voldoet aan onze modulariteitscriteria.
+
+\subsection{Beperkingen}
+De manier waarop we het display samenstellen legt enkele beperkingen op wat betreft de mogelijke toepassingen. Het is niet mogelijk om een signaal door te geven in het display; alle SmartLEDs zijn afhankelijk van eigen initiatief of input van de gebruiker. Dit laat niet toe om het SmartLED-display te gebruiker zoals een conventioneel display. 
+
+Daarnaast is ook de resolutie van het display beperkt. De grote van de SmartLEDs laat niet toe om de resolutie van een conventioneel display te benaderen. Wanneer uitgerust met een pingpongbal-diffuser hebben de LEDs een doorsnede van 3.7cm. Hierdoor zijn ze niet geschikt voor gedetailleerde weergaves maar eerder voor globale vormen op grotere afstand.
+
 
 
 \section{Verder werk}
-Als vervolg op dit project zou een display opgebouwd uit echte SmartLEDs gemaakt kunnen worden. Het zou ook interessant zijn mocht er een oplossing gevonden worden voor het probleem met de invalshoek van de LEDs zodat zijdelings gecommuniceerd kan worden.
+Als vervolg op dit project zou een display opgebouwd uit echte SmartLEDs (in plaats van de door ons gebruikte Zigduino's) gemaakt kunnen worden. Het zou ook interessant zijn om de mogelijkheden voor zijwaartse communicatie tussen de displayLEDs verder te onderzoeken. Ook zijn er andere applicaties mogelijk waarbij de flexibiliteit van het display verder benut wordt.
 
 \bibliography{bronnen}
 \bibliographystyle{named}
