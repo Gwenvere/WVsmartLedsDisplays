@@ -10,6 +10,7 @@
 \usepackage{named}
 \usepackage{url}
 \usepackage{csquotes}
+\usepackage{subcaption}
 \hyphenpenalty = 10000
 \exhyphenpenalty = 10000
 
@@ -88,7 +89,7 @@ Om onze hypothese te testen maken we gebruik van LEDs verbonden met Zigduino r2 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=8cm]{Opstelling.png}
+\includegraphics[width=9cm]{Opstelling.png}
 \caption{De opstelling voor de display SmartLEDs}
 \label{fig:opstelling}
 \end{figure}
@@ -150,6 +151,8 @@ Door het grote verschil in waarde is het makkelijker om te registreren wanneer e
 
  Voor de \textbf{synchronisatie} maken we gebruik van oversampling, zoals beschreven in de paper. Dit houdt in dat we voor elke bit meerdere lezingen uitvoeren, namelijk 3. Door de metingen met elkaar te vergelijken kunnen onverwachte veranderingen worden opgespoord. Hieruit kan worden afgeleid of de lezer voor of achterloopt op de zender. Om ervoor te zorgen dat de juiste bitstring gelezen wordt, zal de lezer de fout corrigeren door de laatste meting van de vorige bit over te brengen naar de volgende. Voor de volgende bit worden dan maar 2 bijkomende metingen gedaan.
  
+Om het begin van de bitstring aan te geven gebruiken we een preamble. Deze bestaat simpelweg uit drie een’en gevolgd door een nul. De ontvanger controleert of hij deze preamble ontvangt en indien dit het geval is, begint hij de bitstring te registreren.
+
 \subsection{Threshold}
 
 Om ervoor te zorgen dat de SmartLEDs een verschil zien tussen omgevingslicht en een signaal moeten we een threshold, een waarde vanaf wanneer we een meeting als input beschouwen, instellen. Omdat we gebruik maken van infraroodlicht blijft de waarde van de threshold redelijk constant. We merken echter wel verschillen in de gemeten basiswaarde afhankelijk van het gebruikte Zigduino-bord en eventuele storingsbronnen. Hierdoor is het nodig om op regelmatige tijdstippen de waarde van de threshold bij te sturen. 
@@ -221,30 +224,53 @@ Een eerste toepassing is een verfborstel applicatie. Deze vorm van interactie is
 
 Bij de start van het programma staan de display-LEDs op wit. Wanneer de lichtpen voorbij komt veranderen ze van kleur, naar blauw. Deze kleur houden ze enkele seconden aan waarna ze weer naar wit overschakelen. Wanneer we meerdere display-LEDs naast elkaar zetten zijn we in staat een groter canvas te maken. Door de aard van de toepassing is het niet nodig om synchronisatie te voorzien tussen de individuele SmartLEDs. Voor de gebruiker werkt het canvas als \'e\'en geheel.
 
-\subsubsection{Whack-a-mole}
+
+\subsubsection{Whack-a-Mole}
 Voor een tweede toepassing met de na\"ive methode wilden we de interactiemogelijkheden testen met behulp van een interactief spel. Hierbij nemen de SmartLEDs wel initiatief en wordt hun volgende actie bepaald afhankelijk van de actie van de gebruiker. 
 
-We kozen hier voor een variant op "\textit{Whack-a-mole}" (zie figuur \ref{fig:mole}). Hier staan de display-LEDs bij de start van het programma op groen. Na een willekeurig bepaalde tijd veranderen ze van kleur, naar rood, om aan te geven dat de gebruiker actie moet ondernemen. Indien de gebruiker de lichtpen op de display-LED richt zal deze de input registreren en even overgaan naar blauw om aan te geven dat de rode LED succesvol is “uitgeschakeld”. Indien er binnen de twee seconden geen input wordt geregistreerd betekend dit dat de rode LED niet is uitgeschakeld en zal de display-LED dit aangeven door oranje te knipperen.  
+We kozen hier voor een variant op "\textit{Whack-a-Mole}" (zie figuur \ref{fig:mole}). Hier staan de display-LEDs bij de start van het programma op groen. Na een willekeurig bepaalde tijd veranderen ze van kleur, naar rood, om aan te geven dat de gebruiker actie moet ondernemen. Indien de gebruiker de lichtpen op de display-LED richt zal deze de input registreren en even overgaan naar blauw om aan te geven dat de rode LED succesvol is “uitgeschakeld”. Indien er binnen de twee seconden geen input wordt geregistreerd betekend dit dat de rode LED niet is uitgeschakeld en zal de display-LED dit aangeven door oranje te knipperen.  
 Ook hier is er geen nood aan synchronisatie, de willekeurige aard van het spel laat toe om de individuele Smart-LEDs als een gesimuleerd geheel te laten werken voor de gebruiker.
 
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=8cm]{moleSequence.png}
-\caption{1:inactief, 2:vraagt om respons, 3:geen respons, \mbox{4: wel respons}}
+\caption{Whack-a-Mole; 1:inactief, 2:vraagt om respons, 3:geen respons, \mbox{4: wel respons}}
 \label{fig:mole}
 \end{figure}
 
 \subsection{Bitstring Methode}
 
-//TODO volledige uitwerking hoe dit werkt (codes die corresponderen met knoppen)
-//TODO beschrijving brush applicatie
-//TODO beschrijving program switching
 
+Bij de bitstring methode hebben de lichtpen voorzien van drie knoppen. Deze knoppen hebben elk hun eigen unieke bistring. Dit laat ons toe om meer interactiemogelijkheden te gebruiken bij de implementatie. 
 
+\subsubsection{Verfborstel 2}
+We hebben de verfborstel applicatie uitgebreid met deze nieuwe mogelijkheden. Elke knop komt nu overeen met een kleur: rood, groen en blauw. Wanneer de gebruiker een knop indrukt zal de display-LED de overeenkomstige kleur aannemen. Na enkele seconden wordt de LED terug wit. Ook is het mogelijk om aan een combinatie van knoppen een bitstring toe te kennen. Zo kunnen meerdere kleuren bekomen worden. 
 
 Bij de tweede manier wordt er een bit-string verzonden naar het display. Deze manier hebben we getest met een programma waarbij een bit-string gelijk werd gesteld aan een kleur die de display LED moest aannemen of aan een programma dat afgespeeld moest worden.
 
+Ook deze applicatie laat toe om het display als \'e\'en geheel te gebruiken, zonder dat hier synchronisatie voor nodig is.
+
+\begin{figure} [H]
+  \begin{subfigure}[b]{4.2 cm}
+    \includegraphics[width=4.2 cm]{Verfborstel.png}
+    \caption{Na\"ive implementatie van de verfborstel}
+    \label{verfNaif}
+  \end{subfigure}
+%
+    \begin{subfigure}[b]{0.3 cm}
+    \end{subfigure}
+    %
+  \begin{subfigure}[b]{4.2 cm}
+    \includegraphics[width=4.2 cm]{VerfborstelKleur.png}
+    \caption{Bitstring implementatie van de verfborstel}
+    \label{verfBit}
+  \end{subfigure}
+\end{figure}
+
+\subsubsection{Programma selecteren}
+
+Het is mogelijk om de knoppen een functie te geven buiten de applicatie, bijvoorbeeld om een andere applicatie te selecteren. Zo kan 1 knop gebruikt worden om de SmartLEDs in een “selectie” toestand te brengen. Vanuit deze toestand wachten de display-LEDs op een input om over te schakelen naar het volgende programma. Indien de lichtpen voorzien is van een groter bereik (door meerdere infrarood-LEDs te monteren), zou het mogelijk moeten zijn om de display-LEDs gelijktijdig met een ander programma te laten starten. De synchronisatie zal hier waarschijnlijk niet perfect zijn. Dit is iets waar bij het schrijven van toepassingen rekening moet worden gehouden.
 
 \section{Conclusie}
 //TODO criteria uit evaluatie bespreken
